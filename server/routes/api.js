@@ -2,8 +2,6 @@ const express = require('express');
 const router = express.Router();
 const passport = require('passport');
 const jwt = require('jsonwebtoken');
-
-const nodemailer = require('nodemailer');
 const bodyParser = require('body-parser');
 const multer = require('multer');
 const assert = require('assert');
