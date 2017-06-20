@@ -15,7 +15,7 @@ export class BackendService {
     let headers= new Headers();
     headers.append('Content-Type','application/json'); 
    
-    return this.http.post('https://localhost:3000/api/createrole',body,{headers:headers})
+    return this.http.post('https://mirrors-dashboard.herokuapp.com/api/createrole',body,{headers:headers})
           .map(res=>res.json());
 
 
@@ -25,7 +25,7 @@ export class BackendService {
     let headers= new Headers();
     headers.append('Content-Type','application/json'); 
    
-    return this.http.get('https://localhost:3000/api/fetchrole',{headers:headers})
+    return this.http.get('https://mirrors-dashboard.herokuapp.com/api/fetchrole',{headers:headers})
           .map(res=>res.json());
              
 
@@ -36,7 +36,7 @@ export class BackendService {
     let headers= new Headers();
     headers.append('Content-Type','application/json'); 
    
-    return this.http.post('https://localhost:3000/api/submituser',body,{headers:headers})
+    return this.http.post('https://mirrors-dashboard.herokuapp.com/api/submituser',body,{headers:headers})
           .map(res=>res.json());
 
 
@@ -46,7 +46,7 @@ export class BackendService {
     let headers= new Headers();
     headers.append('Content-Type','application/json'); 
    
-    return this.http.get('https://localhost:3000/api/fetchuserdata',{headers:headers})
+    return this.http.get('https://mirrors-dashboard.herokuapp.com/api/fetchuserdata',{headers:headers})
           .map(res=>res.json());
              
 
@@ -57,7 +57,7 @@ export class BackendService {
 
     let headers= new Headers();
     headers.append('Content-Type','application/json');
-   return this.http.get('https://localhost:3000/api/fetchbooking',{headers:headers}).map(res=>res.json());
+   return this.http.get('https://mirrors-dashboard.herokuapp.com/api/fetchbooking',{headers:headers}).map(res=>res.json());
 
   }
 
@@ -65,7 +65,7 @@ export class BackendService {
   var id=val;
    let headers= new Headers();
     headers.append('Content-Type','application/json');
-      return this.http.get('http://localhost:3000/api/confirmbookings/'+id,{headers:headers})
+      return this.http.get('https://mirrors-dashboard.herokuapp.com/api/confirmbookings/'+id,{headers:headers})
           .map(res=>res.json());
 
   }
@@ -77,7 +77,7 @@ export class BackendService {
 
     headers.append('Content-Type','application/json');
 
-    return this.http.get('https://localhost:3000/api/cancelbookings/'+id,{headers:headers})
+    return this.http.get('https://mirrors-dashboard.herokuapp.com/api/cancelbookings/'+id,{headers:headers})
           .map(res=>res.json());
 
   }
@@ -87,7 +87,7 @@ export class BackendService {
 
     headers.append('Content-Type','application/json');
 
-    return this.http.post('https://localhost:3000/api/uploadData/',value,{headers:headers})
+    return this.http.post('https://mirrors-dashboard.herokuapp.com/api/uploadData/',value,{headers:headers})
           .map(res=>res.json());
 
   }
@@ -96,7 +96,7 @@ editUser(value)
 {
     let headers= new Headers();
     headers.append('Content-Type','application/json');
-    return this.http.put('https://localhost:3000/api/editUser/'+value,{headers:headers})
+    return this.http.put('https://mirrors-dashboard.herokuapp.com/api/editUser/'+value,{headers:headers})
           .map(res=>res.json());
 
 }
@@ -106,7 +106,7 @@ SaveEditRole(id,value)
     let headers= new Headers();
 
     headers.append('Content-Type','application/json');
-    return this.http.put('https://localhost:3000/api/editRole/'+id,value,{headers:headers})
+    return this.http.put('https://mirrors-dashboard.herokuapp.com/api/editRole/'+id,value,{headers:headers})
           .map(res=>res.json());
 
 }
