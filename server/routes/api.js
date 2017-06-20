@@ -9,23 +9,7 @@ const User = require('../../models/user');
 const Role = require('./../../models/role');
 const config = require('../../config/database');
 
-
-const XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
 const request = require('request');
-
-/*
-router.use(function(req, res, next) { //allow cross origin requests
-    res.setHeader("Access-Control-Allow-Methods", "POST, PUT, OPTIONS, DELETE, GET");
-    res.header("Access-Control-Allow-Origin", "http://localhost:4200");
-    res.header("Access-Control-Allow-Origin", "https://api.mirrorsapp.in/v1/bookings");
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    res.header("Access-Control-Allow-Credentials", true);
-    next();
-});
-*/
-
-
-
 
 router.post('/createrole', (req, res, next) => {
 
