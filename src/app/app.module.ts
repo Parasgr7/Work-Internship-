@@ -14,7 +14,6 @@ import { ImageuploadComponent } from './imageupload/imageupload.component';
 import{BackendService} from './backend.service';
 import { PendingComponent } from './pending/pending.component';
 import { ConfirmedComponent } from './confirmed/confirmed.component';
-import { InMemoryWebApiModule } from 'angular2-in-memory-web-api';
 import { DiscountComponent } from './discount/discount.component';
 
 @NgModule({
