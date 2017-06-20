@@ -1,0 +1,78 @@
+<form #data="ngForm" method="POST" nonvalidate (ngSubmit)="onsave(data.value)">
+    <div class="col-sm-12">
+        <div class="row">
+            <div class="col-sm-6">
+                <br>
+                <h4>Discount</h4>
+                <br>
+
+                <div class="row">
+                    <div class="col-sm-12">
+                        <input type="radio" value="Yes" name="radio">
+                        <input type="number" name="off" id="off" min="0" max="100">% OFF &emsp; <b>OR</b> &emsp;
+                        <input type="radio" value="" name="radio">
+                        <input type="number" name="No" id="rate" min="0">RS
+                    </div>
+                </div>
+                <br>
+                <br>
+                <h5>Condition(Exception)</h5>
+                <br>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <label class="radio-inline">
+                            <input type="radio" value="Ha" id="radio1" name="radio1">
+
+                            <input type="text" name="" id="con"  value="On Total Bill Amount" >
+                            
+                        </label>&emsp;&emsp;
+                        <label class="radio-inline">
+                            <input type="radio" value="Na" id="radio1" name="radio1">
+                            <input type="number" name="rupee" id="con1" placeholder="Minimum Amount" min="0">
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <br>
+                        <div class="row">
+                            <h4>Packages</h4>
+                        </div>
+                        <div class="row" class="form-group">
+
+                            <br> Package Name
+                            <textarea name="name" required class="form-control" ngModel></textarea>
+                        </div>
+                        <br>
+                        <div class="row" class="form-group">
+                            <br> Original Price
+                            <input type="number" name="original_price" placeholder="Enter Original Price" ngModel required class="form-control">
+                        </div>
+                        <br>
+                        <div class="row" class="form-group">
+
+                            <br> Discounted Price
+                            <input type="text" name="discount" ngModel hidden>
+
+                            <input type="number" name="discounted_price" placeholder="Enter Discounted Price" ngModel required class="form-control">
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <br>
+                                <div class="row">
+                                    <h5>Exclusive/Special Offers<br></h5>
+                                    <textarea name="offers" ngModel required class="form-control"></textarea>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <br>
+        </div>
+    </div>
+    <button type="submit" [disabled]="!data.valid" class="btn btn-primary btn-md">Save</button>
+    <form>

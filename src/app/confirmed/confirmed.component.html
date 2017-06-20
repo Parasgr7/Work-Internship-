@@ -1,0 +1,25 @@
+<table class="table">
+    <thead>
+        <tr>
+            <th>S.No</th>
+            <th>Booking Id</th>
+            <th>Customer Name</th>
+            <th>Client Name</th>
+            <th>Location</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let data of arr; let i=index">
+            <ng-template [ngIf]="data?.status !== 'Pending'">
+                <th scope="row">{{i+1}}</th>
+                <td>{{ data?.booking_id }}</td>
+                <td>{{ data?.user_id?.name }}</td>
+                <td>{{ data?.merchant_id?.name }}</td>
+                <td>{{data?.merchant_id?.address?.locality}},{{data?.merchant_id?.address?.city}}</td>
+                <td>{{ data?.status}}</td>
+            </ng-template>
+        </tr>
+
+    </tbody>
+</table>

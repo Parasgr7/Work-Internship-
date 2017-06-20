@@ -1,0 +1,76 @@
+<div class="nav-side-menu">
+    <div class="brand">Mirrors</div>
+    <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
+
+    <div class="menu-list">
+
+        <ul id="menu-content" class="menu-content collapse out">
+
+            <li [routerLink]="['./role']">
+                <a>
+                    <i class=" fa fa-users fa-lg "></i> Roles
+                </a>
+            </li>
+            <li [routerLink]="['./users']">
+                <a>
+                    <i class="fa fa-users fa-lg "></i> Create User
+                </a>
+            </li>
+            <li [routerLink]="['./upload']">
+                <a>
+                    <i class="fa fa-users fa-lg "></i> Upload
+                </a>
+            </li>
+            <li [routerLink]="['./edit']">
+                <a>
+                    <i class="fa fa-users fa-lg  "></i> Edit
+                </a>
+            </li>
+            <li [routerLink]="['./booking']" data-toggle="collapse" data-target="#book" class="collapsed">
+                <a>
+                    <i class="fa fa-users fa-lg "></i> Bookings<span class="arrow"></span>
+                </a>
+            </li>
+            <ul class="sub-menu collapse" id="book">
+                <li>
+
+                </li>
+                <li>
+
+                </li>
+            </ul>
+
+            <li [routerLink]="['./imageupload']">
+                <a>
+                    <i class="fa fa-users fa-lg "></i> Image Uploading
+                </a>
+            </li>
+            <li [routerLink]="['./pending']">
+                <a>
+                    <i class="fa fa-users fa-lg "></i> Pending
+                </a>
+            </li>
+            <li [routerLink]="['./confirmed']">
+                <a>
+                    <i class="fa fa-users fa-lg "></i> Confirmed
+                </a>
+            </li>
+            <li [routerLink]="['./discount']">
+                <a>
+                    <i class="fa fa-users fa-lg "></i> Discount
+                </a>
+            </li>
+
+
+
+
+
+
+        </ul>
+    </div>
+</div>
+<div class="container abc">
+    <router-outlet></router-outlet>
+    <router-outlet></router-outlet>
+
+</div>

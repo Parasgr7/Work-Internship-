@@ -1,0 +1,170 @@
+<br>
+<button type="button" class="btn btn-primary btn-md" data-toggle="modal" data-target="#largeShoes">
+Create a new Role
+</button>
+
+<div class="modal fade" id="largeShoes" tabindex="-1" role="dialog" aria-labelledby="modalLabelLarge" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+
+            <div class="modal-header">
+
+                <h4 class="modal-title" id="modalLabelLarge">Create Role</h4>
+
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+<span aria-hidden="true">&times;</span>
+</button>
+            </div>
+            <form #data="ngForm" method="POST" nonvalidate (ngSubmit)="onsave(data.value)">
+                <div class="modal-body" class="container">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <h5>Name</h5>
+                            <input type="text" name="role" minlength="4" placeholder="Enter Role Name" #uname="ngModel" [ngModel]="entry.role" required class="form-control">
+                            <div *ngIf="uname.errors && (uname.dirty||uname.touched)">
+                                <div [hidden]="!uname.errors.required">
+                                    <small><i>*Please enter your role</i></small>
+                                </div>
+                                <div [hidden]="(!uname.errors.minlength)">
+                                    <small><i>*Please use minimum 4 character </i></small>
+
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+
+                            <label><h5>Authorities</h5></label>
+                            <br>
+                            <label class="checkbox">
+                            <input type="checkbox" value="Create Role" name="role1" ngModel> Create Role
+                            </label>
+                            <br>
+                            <label class="checkbox">
+                        <input type="checkbox" value="Create User" name="role2" ngModel> Create User
+                             </label>
+                            <br>
+                            <label class="checkbox">
+                                <input type="checkbox" value="Upload Data" name="role3" ngModel> Upload data
+                        </label>
+                            <br>
+                            <label class="checkbox">
+                                <input type="checkbox" value="Booking" name="role4" ngModel> Booking
+                        </label>
+                            <br>
+                            <label class="checkbox">
+                                <input type="checkbox" value="Image Upload" name="role5" ngModel> Image Upload
+                        </label>
+                            <br>
+                        </div>
+                    </div>
+                    <br>
+                    <button type="submit" [disabled]="!data.valid" class="btn btn-primary btn-md">Save</button>
+                    <br><br>
+
+
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<br>
+<br>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Role Name</th>
+            <th>Authority</th>
+            <th><label>Edit</label></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+
+            <tr *ngFor="let res of arr; let i=index">
+
+                <th scope="row">{{i+1}}</th>
+                <td>{{res.role}}</td>
+                <td>
+                    <span *ngIf="res.createrole"> Create Role,</span>
+                    <span *ngIf="res.createruser">  Create User,</span>
+                    <span *ngIf="res.uploaddata">  Upload Data,</span>
+                    <span *ngIf="res.booking">  Booking,</span>
+                    <span *ngIf="res.imageupload"> Image upload,</span>
+                </td>
+                <td>&emsp;<label><i class="fa fa-pencil-square-o" data-toggle="modal" (click)="editRole(res._id,res)" data-target="#edit" aria-hidden="true"></i></label></td>
+            </tr>
+    </tbody>
+</table>
+
+
+<div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-labelledby="modalLabelLarge" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+
+            <div class="modal-header">
+
+                <h4 class="modal-title" id="edit">Edit Role</h4>
+
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+<span aria-hidden="true">&times;</span>
+</button>
+            </div>
+            <form #edit="ngForm" nonvalidate (ngSubmit)="SaveEditRole(edit.value)">
+                <div class="modal-body" class="container">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <h5>Name</h5>
+                            <input type="text" name="role" id="role" minlength="4" #uname="ngModel" [ngModel]="entry.role" class="form-control">
+                            <div *ngIf="uname.errors && (uname.dirty||uname.touched)">
+                                <div [hidden]="!uname.errors.required">
+                                    <small><i>*Please enter your role</i></small>
+                                </div>
+                                <div [hidden]="(!uname.errors.minlength)">
+                                    <small><i>*Please use minimum 4 character </i></small>
+
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+
+                            <label><h5>Authorities</h5></label>
+                            <br>
+                            <label class="checkbox">
+                            <input type="checkbox" value="Create Role" name="role1" id="r1" ngModel> Create Role
+                            </label>
+                            <br>
+                            <label class="checkbox">
+                        <input type="checkbox" value="Create User" name="role2" id="r2" ngModel> Create User
+                             </label>
+                            <br>
+                            <label class="checkbox">
+                                <input type="checkbox" value="Upload Data" name="role3" id="r3" ngModel> Upload data
+                        </label>
+                            <br>
+                            <label class="checkbox">
+                                <input type="checkbox" value="Booking" name="role4" id="r4" ngModel> Booking
+                        </label>
+                            <br>
+                            <label class="checkbox">
+                                <input type="checkbox" value="Image Upload" name="role5" id="r5" ngModel> Image Upload
+                        </label>
+                            <br>
+                        </div>
+                    </div>
+                    <br>
+                    <button type="submit" [disabled]="!edit.valid" class="btn btn-primary btn-md">Save</button>
+                    <br><br>
+
+
+                </div>
+            </form>
+
+        </div>
+
+
+    </div>
+
+</div>

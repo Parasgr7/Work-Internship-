@@ -1,0 +1,1 @@
+console.log(document.getElemtByName('fac1').value);
