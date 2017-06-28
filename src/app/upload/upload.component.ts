@@ -62,6 +62,7 @@ public data=[];
       special_offers:[],
       exclusive:[]
 
+
     });
 
  
@@ -89,12 +90,13 @@ ngAfterViewInit() {
   
       
     });
-      
+
      var longitude=$('#longitude').val();
      var latitude=$('#latitude').val();
  var sum=new Array;
  sum.push(latitude);
  sum.push(longitude);
+
  if($('#offers').val())
  {
    this.dataForm.patchValue({exclusive: true});
@@ -118,6 +120,7 @@ ngAfterViewInit() {
   
 
    this.service.uploadData(this.dataForm.value).subscribe(data=>{
+
   if(data){
     alert('Merchant Data have been succesfully updated');
     this.router.navigate(['./discount']);

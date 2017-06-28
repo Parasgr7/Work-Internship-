@@ -7,6 +7,7 @@ import {Router} from '@angular/router';
 })
 export class ImageuploadComponent implements OnInit {
 
+
   constructor() { 
     
   }
@@ -14,6 +15,7 @@ export class ImageuploadComponent implements OnInit {
  
   ngOnInit() {
     
+
   }
 
 }

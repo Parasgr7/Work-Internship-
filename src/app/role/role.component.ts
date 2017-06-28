@@ -28,6 +28,7 @@ public res: any;
   }
 
 
+
    fetchdata()
   
   {
@@ -85,7 +86,7 @@ editRole(val,res){
 
 }
 SaveEditRole(value){
-  console.log(value);
+
   if($('#role').val())
 {
   value.role=$('#role').val();

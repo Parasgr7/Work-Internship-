@@ -1,13 +1,16 @@
 import { Component, OnInit } from '@angular/core';
+
 import {FormGroup, FormBuilder} from '@angular/forms';
 import {BackendService} from './../backend.service';
 import{Router} from '@angular/router';
+
 @Component({
   selector: 'app-edit',
   templateUrl: './edit.component.html',
   styleUrls: ['./edit.component.css']
 })
 export class EditComponent implements OnInit {
+
 
   dataForm : FormGroup;
 public merdata:any;
@@ -379,5 +382,6 @@ val.information.geder="Unisex"
 
 
  
+
 
 }

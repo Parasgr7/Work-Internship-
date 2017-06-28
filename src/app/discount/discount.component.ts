@@ -20,6 +20,7 @@ public sum3;
    
   }
   ngAfterViewInit() {
+
     
   }
  onsave(val)

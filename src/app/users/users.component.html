@@ -31,7 +31,9 @@ New User
                             Role
                             <br>
                             <select name="role" class="form-control">
-                      <option *ngFor="let res of arr" [selected]="res.role == 'Admin'" [value]="res.role">{{res.role}}</option>    
+
+                      <option *ngFor="let res of arr" [value]="res.role">{{res.role}}</option>
+
                     
                             </select>
 
