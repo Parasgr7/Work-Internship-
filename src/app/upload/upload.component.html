@@ -1,0 +1,305 @@
+<form #data="ngForm" method="POST" [formGroup]="dataForm" nonvalidate (ngSubmit)="uploadData()">
+    <br>
+    <div class="col-sm-12">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="row" class="form-group">
+                            <div class="col-sm-12">
+                                <h4>Merchant Name</h4>
+                                <input type="text" name="name" placeholder="Enter Merchant Name" formControlName="name" required class="form-control">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="col-sm-4">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <h4>Location</h4>
+                    </div>
+                </div>
+                <br>
+                <div formGroupName="loc">
+                    <div class="row" class="form-group">
+                        <div class="col-sm-12">
+                            Latitude
+                            <input type="number" id="latitude" placeholder="Enter Latitude" required class="form-control">
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row" class="form-group">
+                        <div class="col-sm-12">
+                            Longitude
+                            <input type="number" id="longitude" placeholder="Enter Longitude" required class="form-control">
+                        </div>
+                    </div>
+                </div>
+
+                <br>
+                <div formGroupName="address">
+                    <div class="row" class="form-group">
+                        <div class="col-sm-12">
+                            Shop No.
+                            <input type="text" name="shop_no" placeholder="Enter Shop No." formControlName="shop_no" required class="form-control">
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row" class="form-group">
+                        <div class="col-sm-12">
+                            Street Name
+                            <input type="text" name="street" placeholder="Enter Street Name" formControlName="street" required class="form-control">
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row" class="form-group">
+                        <div class="col-sm-12">
+                            Locality
+                            <input type="text" name="locality" placeholder="Enter Locality" formControlName="locality" required class="form-control">
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row" class="form-group">
+                        <div class="col-sm-12">
+                            City
+                            <input type="text" name="city" placeholder="Enter City" required formControlName="city" class="form-control">
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row" class="form-group">
+                        <div class="col-sm-12">
+                            State
+                            <input type="text" name="state" placeholder="Enter State" required formControlName="state" class="form-control">
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row" class="form-group">
+                        <div class="col-sm-12">
+                            Pincode
+                            <input type="number" name="pincode" placeholder="Enter Pincode" required formControlName="pincode" class="form-control">
+                        </div>
+                    </div>
+                    <br>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <h4>Contact</h4>
+                    </div>
+                </div>
+                <br>
+                <div formGroupName="contact">
+                    <div class="row" class="form-group">
+                        <div class="col-sm-12">
+                            Client Phone
+                            <input type="text" name="conatct_no" placeholder="To be displayed on Mirrorsapp" formControlName="contact_no" required class="form-control">
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row" class="form-group">
+                        <div class="col-sm-12">
+                            Client Phone
+                            <input type="text" name="phone_number" placeholder="For SMS" required formControlName="phone_number" class="form-control">
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row" class="form-group">
+                        <div class="col-sm-12">
+                            Contact Email
+                            <input type="text" name="email" placeholder="Enter your Mail" required formControlName="email" class="form-control">
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row" class="form-group">
+                        <div class="col-sm-12">
+                            Website
+                            <input type="text" name="website" placeholder="Enter your Website" required formControlName="website" class="form-control">
+                        </div>
+                    </div>
+                    <br>
+                    <br>
+                    <br>
+                </div>
+                <h4>Offers</h4>
+                <br>
+                <div class="row" class="form-group">
+                    <div class="col-sm-12">
+                        Special/Exclusive Offers
+                        <textarea id="offers" name="special_offers" formControlName="special_offers" required class="form-control"></textarea>
+                    </div>
+                </div>
+                <div formGroupName="discount">
+                    <div class="row" class="form-group">
+                        <div class="col-sm-12">
+                            <b> Discount</b>
+                            <br> Percentage:
+                            <br>
+                            <input type="number" formControlName="percentage" name="off" id="off" min="0" max="100">
+                        </div>
+                    </div>
+                    <div class="row" class="form-group">
+                        <div class="col-sm-12">
+                            Condition:
+                            <input type="text" name="condition" id="con" formControlName="condition" class="form-control" placeholder="Conditions">
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <br>
+
+            <div class="col-sm-4">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <h4>Information</h4>
+                    </div>
+                </div>
+                <br>
+                <div formGroupName="information">
+                    <div class="row">
+                        <div class="col-sm-12">
+
+                            <h6>Cost</h6>
+                            <div class="col-sm-12">
+                                <label class="radio-inline">
+                             <input type="radio" name="cost_rating" formControlName="cost_rating"  value="1">*
+                        </label> &nbsp;&nbsp;
+                                <label class="radio-inline">
+                             <input type="radio" name="cost_rating" formControlName="cost_rating" value="2">**
+                        </label>&nbsp;&nbsp;
+                                <label class="radio-inline">
+                             <input type="radio" name="cost_rating" formControlName="cost_rating" value="3">***
+                        </label> &nbsp;&nbsp;
+                                <label class="radio-inline">
+                            <input type="radio" name="cost_rating" formControlName="cost_rating"value="4">****
+                        </label>
+                            </div>
+                            <div class="col-sm-12">
+                                <h6> Facilites</h6>
+                                <label class="checkbox-inline">
+                            <input type="checkbox" name="fac" value="Card">Card
+                        </label>&emsp;
+                                <label class="checkbox-inline">
+                             <input type="checkbox" name="fac" value="AC">AC
+                        </label>&emsp;
+                                <label class="checkbox-inline">
+                             <input type="checkbox" name="fac" value="Wi-Fi">Wi-Fi
+                        </label>&emsp;
+                                <label class="checkbox-inline">
+                            <input type="checkbox" name="fac" value="Parking">Parking
+                        </label>&emsp;
+
+                                <label class="checkbox-inline">
+                             <input type="checkbox"name="fac" value="TV">TV
+                        </label>&emsp;
+
+                                <br>
+                            </div>
+                            <div class="col-sm-12">
+                                <h6>Gender</h6>
+                                <label class="radio-inline">
+                            <input type="radio" value="Men" formControlName="gender" name="gender">Men Only
+                        </label>&emsp;
+                                <label class="radio-inline">
+                            <input type="radio" value="Women" formControlName="gender" name="gender" >Female Only
+                        </label>&emsp;
+                                <label class="radio-inline">
+                             <input type="radio" value="Unisex" formControlName="gender" name="gender">Unisex
+                        </label>&emsp;
+                            </div>
+                            <div formGroupName="head">
+                                <div class="col-sm-12">
+                                    Name
+                                    <input type="text" name="name" placeholder="Head Stylist" formControlName="name" required class="form-control">
+                                    <br>
+                                </div>
+
+                                <div class="col-sm-12">
+                                    Designation
+                                    <input type="text" name="designation" placeholder="Enter Merchant's Designation" formControlName="designation" required class="form-control">
+                                    <br>
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <h6>Services</h6>
+                                <label class="checkbox-inline">
+                            <input type="checkbox" name="ser" value="Salon">Salon
+                        </label>&emsp;
+                                <label class="checkbox-inline">
+                            <input type="checkbox"name="ser" value="Spa">Spa
+                        </label>&emsp;
+                                <label class="checkbox-inline">
+                             <input type="checkbox" name="ser" value="Nails">Nails
+                        </label>&emsp;
+                                <label class="checkbox-inline">
+                             <input type="checkbox" name="ser" value="Make-Up">Make-Up
+                        </label>&emsp;
+                                <label class="checkbox-inline">
+                             <input type="checkbox" name="ser" value="Tattoo">Tattoo
+                        </label>&emsp;
+                                <label class="checkbox-inline">
+                             <input type="checkbox" name="ser" value="Pets">Pets
+                        </label>&emsp;
+                                <label class="checkbox-inline">
+                             <input type="checkbox" name="ser" value="Bridal">Bridal
+                        </label>&emsp;
+                                <br>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div formGroupName="work_hours">
+                    <div class="row" class="form-group">
+                        <div class="col-sm-12">
+                            <h6> Holidays </h6>
+                            <label class="checkbox-inline">
+                            <input type="radio" name="holiday" formControlName="holiday" value="Monday">Monday
+                        </label>&emsp;
+                            <label class="checkbox-inline">
+                            <input type="radio" name="holiday" formControlName="holiday" value="Tuesday">Tuesday
+                        </label>&emsp;
+                            <label class="checkbox-inline">
+                             <input type="radio" name="holiday" formControlName="holiday" value="Wednesady">Wednesady
+                        </label>&emsp;
+                            <label class="checkbox-inline">
+                             <input type="radio" name="holiday" formControlName="holiday" value="Thursday">Thursday
+                        </label>&emsp;
+                            <label class="checkbox-inline">
+                             <input type="radio" name="holiday" formControlName="holiday" value="Friday">Friday
+                        </label>&emsp;
+                            <label class="checkbox-inline">
+                             <input type="radio" name="holiday"formControlName="holiday" value="Sunday">Sunday
+                        </label>&emsp;
+                            <label class="checkbox-inline">
+                             <input type="radio" name="holiday"formControlName="holiday" value="Saturday">Saturday
+                        </label>
+                            <br>
+                        </div>
+                    </div>
+                    <div class="row" class="form-group">
+                        <div class="col-sm-12">
+                            <h6>Opening Hours</h6>
+                            <input type="text" name="opening_time" formControlName="opening_time" placeholder="Opening Hours" pattern="\b((1[0-2]|0?[1-9]):([0-5][0-9]) ([AP][M]))" class="form-control">
+                        </div>
+                    </div>
+                    <div class="row" class="form-group">
+                        <div class="col-sm-12">
+
+                            <h6>Closing Hours</h6>
+                            <input type="text" name="closing_time" formControlName="closing_time" placeholder="Closing Hours" required pattern="\b((1[0-2]|0?[1-9]):([0-5][0-9]) ([AP][M]))" class="form-control">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <button type="submit" [disabled]="!data.valid" class="btn btn-primary btn-md">Save</button>
+</form>

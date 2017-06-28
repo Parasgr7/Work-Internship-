@@ -1,0 +1,33 @@
+<div class="conatiner">
+    <div class="col-sm-12">
+        <div class="row">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>S.No</th>
+                        <th>Booking Id</th>
+                        <th>Customer Name</th>
+                        <th>Client Name</th>
+                        <th>Location</th>
+                        <th>Timings</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let data of arr; let i=index">
+                        <ng-template [ngIf]="data?.status=='Pending'">
+                            <td scope="row">{{i+1}}</td>
+                            <td>{{ data?.booking_id }}</td>
+                            <td>{{ data?.user_id?.name }}</td>
+                            <td>{{ data?.merchant_id?.name }}</td>
+                            <td>{{data?.merchant_id?.address?.locality}},{{data?.merchant_id?.address?.city}}</td>
+                            <td>{{ data?.time_slot}}</td>
+                            <td><button type="button" (click)="confirm(data?._id)" class="btn btn-success btn-sm">Confirm</button> &nbsp; <button type="button" (click)="cancel(data?._id)" class="btn btn-danger btn-sm">Cancel</button></td>
+                        </ng-template>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
