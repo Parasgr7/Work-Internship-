@@ -244,7 +244,7 @@ $("#h6").prop('checked', true);
 
 
 uploadData(val){
-/*
+
  var longitude=$('#longitude').val();
  var latitude=$('#latitude').val();
  var sum=new Array;
@@ -374,7 +374,7 @@ val.information.geder="Women"
 if($("#w1").is(':checked')){
 val.information.geder="Unisex"
 }
-*/
+
  console.log(val);
  //location.reload();
 }

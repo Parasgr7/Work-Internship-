@@ -17,8 +17,8 @@ const request = require('request');
 /*
 router.use(function(req, res, next) { //allow cross origin requests
     res.setHeader("Access-Control-Allow-Methods", "POST, PUT, OPTIONS, DELETE, GET");
-    res.header("Access-Control-Allow-Origin", "http://localhost:4200");
-    res.header("Access-Control-Allow-Origin", "https://api.mirrorsapp.in/v1/bookings");
+    res.header("Access-Control-Allow-Origin", "https://localhost:4200");
+    res.header("Access-Control-Allow-Origin", "httpss://api.mirrorsapp.in/v1/bookings");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     res.header("Access-Control-Allow-Credentials", true);
     next();
@@ -111,7 +111,7 @@ router.get('/fetchuserdata', (req, res, next) => {
 router.get('/fetchbooking', (req, res, next) => {
 
     var options = {
-        url: 'https://api.mirrorsapp.in/v1/bookings',
+        url: 'httpss://api.mirrorsapp.in/v1/bookings',
         headers: {
             'Authorization': 'JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ODkzMmZmOGY3ODgyNDAwMTE3MGJlZTEiLCJ1cGRhdGVkX2F0IjoiMjAxNy0wMi0wMlQxMzoxMToyMC4zNTZaIiwiY3JlYXRlZF9hdCI6IjIwMTctMDItMDJUMTM6MTE6MjAuMzU2WiIsIl9fdiI6MCwiYWRtaW4iOnRydWUsImdvb2dsZSI6eyJhdWQiOiI4MDQ2MTk2NzE4ODQiLCJlbWFpbCI6InBhcmljaGl0Lmt1bWFya0BnbWFpbC5jb20iLCJpZCI6IjEwNDQwMDUxMTg2MjM0OTAyMDM0MiJ9LCJ1c2VyX2lkIjoiNTg5MzJmZjhmNzg4MjQwMDExNzBiZWUyIiwiaWF0IjoxNDg2MTIzMjQzfQ._CrGlCixzYJILij08cjJFfRQFlualDJn1T_UlP95p8Y',
             'api_key': 'c6578964530bc5c55152c440ac3399c89243b768'
@@ -132,7 +132,7 @@ router.get('/confirmbookings/:id', (req, res, next) => {
     var id = req.params.id;
     var options = {
 
-        url: 'https://api.mirrorsapp.in/v1/bookings/' + id + '/confirm',
+        url: 'httpss://api.mirrorsapp.in/v1/bookings/' + id + '/confirm',
         headers: {
             'Authorization': 'JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ODkzMmZmOGY3ODgyNDAwMTE3MGJlZTEiLCJ1cGRhdGVkX2F0IjoiMjAxNy0wMi0wMlQxMzoxMToyMC4zNTZaIiwiY3JlYXRlZF9hdCI6IjIwMTctMDItMDJUMTM6MTE6MjAuMzU2WiIsIl9fdiI6MCwiYWRtaW4iOnRydWUsImdvb2dsZSI6eyJhdWQiOiI4MDQ2MTk2NzE4ODQiLCJlbWFpbCI6InBhcmljaGl0Lmt1bWFya0BnbWFpbC5jb20iLCJpZCI6IjEwNDQwMDUxMTg2MjM0OTAyMDM0MiJ9LCJ1c2VyX2lkIjoiNTg5MzJmZjhmNzg4MjQwMDExNzBiZWUyIiwiaWF0IjoxNDg2MTIzMjQzfQ._CrGlCixzYJILij08cjJFfRQFlualDJn1T_UlP95p8Y',
             'api_key': 'c6578964530bc5c55152c440ac3399c89243b768'
@@ -152,7 +152,7 @@ router.get('/cancelbookings/:id', (req, res, next) => {
     var id = req.params.id;
     var options = {
 
-        url: 'https://api.mirrorsapp.in/v1/bookings/' + id + '/cancel',
+        url: 'httpss://api.mirrorsapp.in/v1/bookings/' + id + '/cancel',
         headers: {
             'Authorization': 'JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ODkzMmZmOGY3ODgyNDAwMTE3MGJlZTEiLCJ1cGRhdGVkX2F0IjoiMjAxNy0wMi0wMlQxMzoxMToyMC4zNTZaIiwiY3JlYXRlZF9hdCI6IjIwMTctMDItMDJUMTM6MTE6MjAuMzU2WiIsIl9fdiI6MCwiYWRtaW4iOnRydWUsImdvb2dsZSI6eyJhdWQiOiI4MDQ2MTk2NzE4ODQiLCJlbWFpbCI6InBhcmljaGl0Lmt1bWFya0BnbWFpbC5jb20iLCJpZCI6IjEwNDQwMDUxMTg2MjM0OTAyMDM0MiJ9LCJ1c2VyX2lkIjoiNTg5MzJmZjhmNzg4MjQwMDExNzBiZWUyIiwiaWF0IjoxNDg2MTIzMjQzfQ._CrGlCixzYJILij08cjJFfRQFlualDJn1T_UlP95p8Y',
             'api_key': 'c6578964530bc5c55152c440ac3399c89243b768'
@@ -173,7 +173,7 @@ router.post('/uploadData', (req, res, next) => {
     console.log(abc);
     var options = {
 
-        url: 'https://api.mirrorsapp.in/v1/merchants/insert',
+        url: 'httpss://api.mirrorsapp.in/v1/merchants/insert',
         headers: {
             'Authorization': 'JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ODkzMmZmOGY3ODgyNDAwMTE3MGJlZTEiLCJ1cGRhdGVkX2F0IjoiMjAxNy0wMi0wMlQxMzoxMToyMC4zNTZaIiwiY3JlYXRlZF9hdCI6IjIwMTctMDItMDJUMTM6MTE6MjAuMzU2WiIsIl9fdiI6MCwiYWRtaW4iOnRydWUsImdvb2dsZSI6eyJhdWQiOiI4MDQ2MTk2NzE4ODQiLCJlbWFpbCI6InBhcmljaGl0Lmt1bWFya0BnbWFpbC5jb20iLCJpZCI6IjEwNDQwMDUxMTg2MjM0OTAyMDM0MiJ9LCJ1c2VyX2lkIjoiNTg5MzJmZjhmNzg4MjQwMDExNzBiZWUyIiwiaWF0IjoxNDg2MTIzMjQzfQ._CrGlCixzYJILij08cjJFfRQFlualDJn1T_UlP95p8Y',
             'api_key': 'c6578964530bc5c55152c440ac3399c89243b768',
@@ -198,13 +198,13 @@ router.post('/uploadData', (req, res, next) => {
 });
 
 router.post('/fetchMerchant', (req, res, next) => {
-
+    console.log('yes');
     var data = querystring.stringify({
         name: req.body.name
     });
     var options = {
 
-        url: 'http://localhost:8080/v1/merchants/fetch',
+        url: 'https://api.mirrorsapp.in/v1/merchants/fetch',
         headers: {
             'api_key': 'c6578964530bc5c55152c440ac3399c89243b768',
             'Content-type': ' application/x-www-form-urlencoded',
@@ -235,7 +235,7 @@ router.post('/addPackage/:id', (req, res, next) => {
     console.log(data);
     var options = {
 
-        url: 'https://api.mirrorsapp.in/v1/merchants/' + req.params.id + '/packages',
+        url: 'httpss://api.mirrorsapp.in/v1/merchants/' + req.params.id + '/packages',
         headers: {
             'Authorization': 'JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ODkzMmZmOGY3ODgyNDAwMTE3MGJlZTEiLCJ1cGRhdGVkX2F0IjoiMjAxNy0wMi0wMlQxMzoxMToyMC4zNTZaIiwiY3JlYXRlZF9hdCI6IjIwMTctMDItMDJUMTM6MTE6MjAuMzU2WiIsIl9fdiI6MCwiYWRtaW4iOnRydWUsImdvb2dsZSI6eyJhdWQiOiI4MDQ2MTk2NzE4ODQiLCJlbWFpbCI6InBhcmljaGl0Lmt1bWFya0BnbWFpbC5jb20iLCJpZCI6IjEwNDQwMDUxMTg2MjM0OTAyMDM0MiJ9LCJ1c2VyX2lkIjoiNTg5MzJmZjhmNzg4MjQwMDExNzBiZWUyIiwiaWF0IjoxNDg2MTIzMjQzfQ._CrGlCixzYJILij08cjJFfRQFlualDJn1T_UlP95p8Y',
             'api_key': 'c6578964530bc5c55152c440ac3399c89243b768',
@@ -265,7 +265,7 @@ router.get('/getPackage/:id', (req, res, next) => {
 
     var options = {
 
-        url: 'https://api.mirrorsapp.in/v1/merchants/' + req.params.id + '/packages',
+        url: 'httpss://api.mirrorsapp.in/v1/merchants/' + req.params.id + '/packages',
         headers: {
             'Authorization': 'JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ODkzMmZmOGY3ODgyNDAwMTE3MGJlZTEiLCJ1cGRhdGVkX2F0IjoiMjAxNy0wMi0wMlQxMzoxMToyMC4zNTZaIiwiY3JlYXRlZF9hdCI6IjIwMTctMDItMDJUMTM6MTE6MjAuMzU2WiIsIl9fdiI6MCwiYWRtaW4iOnRydWUsImdvb2dsZSI6eyJhdWQiOiI4MDQ2MTk2NzE4ODQiLCJlbWFpbCI6InBhcmljaGl0Lmt1bWFya0BnbWFpbC5jb20iLCJpZCI6IjEwNDQwMDUxMTg2MjM0OTAyMDM0MiJ9LCJ1c2VyX2lkIjoiNTg5MzJmZjhmNzg4MjQwMDExNzBiZWUyIiwiaWF0IjoxNDg2MTIzMjQzfQ._CrGlCixzYJILij08cjJFfRQFlualDJn1T_UlP95p8Y',
             'api_key': 'c6578964530bc5c55152c440ac3399c89243b768'
@@ -291,7 +291,7 @@ router.get('/deletePackage/:id/:id1', (req, res, next) => {
 
     var options = {
 
-        url: 'https://api.mirrorsapp.in/v1/merchants/' + req.params.id1 + '/packages/' + req.params.id,
+        url: 'httpss://api.mirrorsapp.in/v1/merchants/' + req.params.id1 + '/packages/' + req.params.id,
         headers: {
             'Authorization': 'JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ODkzMmZmOGY3ODgyNDAwMTE3MGJlZTEiLCJ1cGRhdGVkX2F0IjoiMjAxNy0wMi0wMlQxMzoxMToyMC4zNTZaIiwiY3JlYXRlZF9hdCI6IjIwMTctMDItMDJUMTM6MTE6MjAuMzU2WiIsIl9fdiI6MCwiYWRtaW4iOnRydWUsImdvb2dsZSI6eyJhdWQiOiI4MDQ2MTk2NzE4ODQiLCJlbWFpbCI6InBhcmljaGl0Lmt1bWFya0BnbWFpbC5jb20iLCJpZCI6IjEwNDQwMDUxMTg2MjM0OTAyMDM0MiJ9LCJ1c2VyX2lkIjoiNTg5MzJmZjhmNzg4MjQwMDExNzBiZWUyIiwiaWF0IjoxNDg2MTIzMjQzfQ._CrGlCixzYJILij08cjJFfRQFlualDJn1T_UlP95p8Y',
             'api_key': 'c6578964530bc5c55152c440ac3399c89243b768'
@@ -316,7 +316,7 @@ router.get('/getMerchant/:id', (req, res, next) => {
 
     var options = {
 
-        url: 'https://api.mirrorsapp.in/v1/merchants/' + req.params.id,
+        url: 'httpss://api.mirrorsapp.in/v1/merchants/' + req.params.id,
         headers: {
             'Authorization': 'JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ODkzMmZmOGY3ODgyNDAwMTE3MGJlZTEiLCJ1cGRhdGVkX2F0IjoiMjAxNy0wMi0wMlQxMzoxMToyMC4zNTZaIiwiY3JlYXRlZF9hdCI6IjIwMTctMDItMDJUMTM6MTE6MjAuMzU2WiIsIl9fdiI6MCwiYWRtaW4iOnRydWUsImdvb2dsZSI6eyJhdWQiOiI4MDQ2MTk2NzE4ODQiLCJlbWFpbCI6InBhcmljaGl0Lmt1bWFya0BnbWFpbC5jb20iLCJpZCI6IjEwNDQwMDUxMTg2MjM0OTAyMDM0MiJ9LCJ1c2VyX2lkIjoiNTg5MzJmZjhmNzg4MjQwMDExNzBiZWUyIiwiaWF0IjoxNDg2MTIzMjQzfQ._CrGlCixzYJILij08cjJFfRQFlualDJn1T_UlP95p8Y',
             'api_key': 'c6578964530bc5c55152c440ac3399c89243b768'
