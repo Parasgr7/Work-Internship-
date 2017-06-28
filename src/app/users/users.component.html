@@ -30,8 +30,8 @@ New User
                         <div class="col-sm-4">
                             Role
                             <br>
-                            <select name="role" [(ngModel)]="selectedvalue" class="form-control">
-                      <option *ngFor="let res of arr" [selected]="res.role == 'Admin'" [value]="res.role">{{res.role}}</option>
+                            <select name="role" class="form-control">
+                      <option *ngFor="let res of arr" [value]="res.role">{{res.role}}</option>
                     
                             </select>
 
