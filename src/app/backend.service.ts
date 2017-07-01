@@ -178,7 +178,7 @@ updateGst(id,name,gst){
            let headers= new Headers();
 
     headers.append('Content-Type','application/json');
-    return this.http.post('http://localhost:3000/api/updateGst/'+id,body,{headers:headers})
+    return this.http.post('https://mirrors-dashboard.herokuapp.com/api/updateGst/'+id,body,{headers:headers})
           .map(res=>res.json());
 
 }
