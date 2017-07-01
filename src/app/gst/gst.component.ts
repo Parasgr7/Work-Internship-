@@ -49,7 +49,10 @@ if(value.name)
 }
 this.service.updateGst(item,value.name,this.gst).subscribe(data=>{
       
-      console.log(data);
+      if(data)
+      {
+        location.reload();
+      }
 
   
 
