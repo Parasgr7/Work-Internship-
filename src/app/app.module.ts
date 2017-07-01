@@ -19,6 +19,7 @@ import { MultipleComponent } from './multiple/multiple.component';
 
 import { Ng2CloudinaryModule } from './../../node_modules/ng2-cloudinary';
 import { FileUploadModule } from 'ng2-file-upload';
+import { GstComponent } from './gst/gst.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { FileUploadModule } from 'ng2-file-upload';
     PendingComponent,
     ConfirmedComponent,
     DiscountComponent,
-    MultipleComponent
+    MultipleComponent,
+    GstComponent
   ],
   imports: [
     BrowserModule,
@@ -57,7 +59,9 @@ import { FileUploadModule } from 'ng2-file-upload';
 
       {path:'discount',component: DiscountComponent},
       
-      {path:'multiple',component: MultipleComponent}
+      {path:'multiple',component: MultipleComponent},
+      
+      {path:'gst',component: GstComponent}
   ]),
   
         Ng2CloudinaryModule,

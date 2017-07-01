@@ -1,0 +1,78 @@
+<div class="col-sm-12">
+    <div class="row">
+
+        <div class="col-sm-12">
+            <div class="row">
+                <div class="col-sm-6">
+                    <br>
+                    <div class="row">
+                        <h4>Merchant Name</h4>
+                    </div>
+                    <form #data="ngForm" method="POST" nonvalidate (ngSubmit)="fetch(data.value)">
+
+                        <div class="row" class="form-group">
+
+                            <br>
+                            <input type="text" name="name" class="form-control" ngModel>
+                        </div>
+
+                        <button type="submit" [disabled]="!data.valid" class="btn btn-primary btn-md">Search</button>
+                    </form>
+
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-sm-12">
+                    <div *ngIf="this.merdata">
+                        <form #pac="ngForm" method="POST" nonvalidate (ngSubmit)="submitGst(pac.value)">
+
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <br>
+                                    <div class="row">
+                                        <h4>Package Name</h4>
+                                    </div>
+
+                                    <div class="row" class="form-group">
+
+                                        <br> GST Special Offers
+                                        <textarea name="name" required class="form-control" ngModel></textarea>
+                                    </div>
+                                    <button type="submit" [disabled]="!pac.valid" class="btn btn-primary btn-md">Add</button>
+
+                                </div>
+                            </div>
+
+
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Merchant Name</th>
+                                        <th>Location</th>
+                                        <th>Contact No.</th>
+                                        <th>Select for GST</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let arr of this.merdata;let i =index">
+                                        <th scope="row">{{i+1}}</th>
+                                        <td>{{arr.name}}</td>
+                                        <td>{{arr.address.locality}},{{arr.address.city}}</td>
+                                        <td>
+                                            <span *ngFor="let con of arr['contact']['phone_number']">{{con}}  </span>
+                                        </td>
+                                        <td>&emsp;&emsp;<input type="checkbox" required name="fac" value="{{arr._id}}"></td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+    </div>
+</div>
