@@ -15,6 +15,10 @@ import{BackendService} from './backend.service';
 import { PendingComponent } from './pending/pending.component';
 import { ConfirmedComponent } from './confirmed/confirmed.component';
 import { DiscountComponent } from './discount/discount.component';
+import { MultipleComponent } from './multiple/multiple.component';
+
+import { Ng2CloudinaryModule } from './../../node_modules/ng2-cloudinary';
+import { FileUploadModule } from 'ng2-file-upload';
 
 @NgModule({
   declarations: [
@@ -27,7 +31,8 @@ import { DiscountComponent } from './discount/discount.component';
     ImageuploadComponent,
     PendingComponent,
     ConfirmedComponent,
-    DiscountComponent
+    DiscountComponent,
+    MultipleComponent
   ],
   imports: [
     BrowserModule,
@@ -50,8 +55,13 @@ import { DiscountComponent } from './discount/discount.component';
       },      
       {path:'imageupload',component: ImageuploadComponent},
 
-      {path:'discount',component: DiscountComponent}
-  ])
+      {path:'discount',component: DiscountComponent},
+      
+      {path:'multiple',component: MultipleComponent}
+  ]),
+  
+        Ng2CloudinaryModule,
+        FileUploadModule
   ],
   providers: [BackendService],
   bootstrap: [AppComponent]
