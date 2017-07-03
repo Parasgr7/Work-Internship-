@@ -20,10 +20,7 @@ dataForm: FormGroup;
         percentage:[],
         condition:[]   
       }),
-      special_offers:[],
-      exclusive:[]
-
-
+      special_offers:[]
     });
 
  
@@ -47,22 +44,16 @@ submit(value){
                     each.push($(this).val());
                     
                   });
-console.log(each);
+
 
               for (var item of each) {
        
-             
-              // this.service.updatePac(item,value.name).subscribe(data=>{
-                    
-              //       if(data)
-              //       {
-              //         location.reload();
-              //       }
-
-                
-
-              //   });
-
+    this.service.addPackage(item,value).subscribe(data=>{
+    if(data._id){
+      alert('Multiple Packages have been succesfully added');
+      location.reload();
+    }
+    });        
               }
 
 }
@@ -78,21 +69,15 @@ exclusive(value){
                                   
                                 });
 
-
                             for (var item of each) {
                             
-                           
-                            // this.service.updateExc(item,value.name).subscribe(data=>{
-                                  
-                            //       if(data)
-                            //       {
-                            //         location.reload();
-                            //       }
-
-                              
-
-                            //   });
-
+                            this.service.updateExc(item,value).subscribe(data=>{
+                            if(data._id){
+                              alert('Exclusive offer have been succesfully added');
+                              location.reload();
+                            }
+                            });
+                          
                             }
 
 }

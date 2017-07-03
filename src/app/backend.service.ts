@@ -7,7 +7,7 @@ import {Entry} from './model.interface';
 import {RequestOptions, Request, RequestMethod} from '@angular/http';
 @Injectable()
 export class BackendService {
-  
+  public body;
  constructor(private http:Http) { }
   createrole(value:Entry)
  {  
@@ -183,10 +183,24 @@ updateGst(id,name,gst){
 
 }
 
-updatePac(val,val2){
 
-}
-updateExc(val,val2){
+updateExc(id,val){
+
+           let headers= new Headers();
+           console.log();
+      if(val.discount.percentage&&val.discount.condition)
+      {
+            
+             this.body=JSON.stringify(val);
+      }
+      else
+      {
+             
+             this.body=JSON.stringify({"special_offers":val.special_offers});
+      }
+    headers.append('Content-Type','application/json');
+    return this.http.post('https://mirrors-dashboard.herokuapp.com/api/updateExc/'+id,this.body,{headers:headers})
+          .map(res=>res.json());
 
 }
 

@@ -3,6 +3,7 @@
         <tr>
             <th>S.No</th>
             <th>Booking Id</th>
+            <th>Date</th>
             <th>Customer Name</th>
             <th>Client Name</th>
             <th>Location</th>
@@ -14,6 +15,7 @@
             <ng-template [ngIf]="data?.status !== 'Pending'">
                 <th scope="row">{{i+1}}</th>
                 <td>{{ data?.booking_id }}</td>
+                <td>{{ data?.date }}</td>
                 <td>{{ data?.user_id?.name }}</td>
                 <td>{{ data?.merchant_id?.name }}</td>
                 <td>{{data?.merchant_id?.address?.locality}},{{data?.merchant_id?.address?.city}}</td>
