@@ -38,7 +38,64 @@ dataForm: FormGroup;
 }
 
 submit(value){
-  console.log(value);
+                console.log(value);
+                  var each=new Array();
+                
+                
+                $('input[name=ch]:checked').each(function(id)
+                    { 
+                    each.push($(this).val());
+                    
+                  });
+console.log(each);
+
+              for (var item of each) {
+       
+             
+              // this.service.updatePac(item,value.name).subscribe(data=>{
+                    
+              //       if(data)
+              //       {
+              //         location.reload();
+              //       }
+
+                
+
+              //   });
+
+              }
 
 }
+
+exclusive(value){
+                              console.log(value);
+                                  var each=new Array();
+                              
+                              
+                              $('input[name=ch]:checked').each(function(id)
+                                  { 
+                                  each.push($(this).val());
+                                  
+                                });
+
+
+                            for (var item of each) {
+                            
+                           
+                            // this.service.updateExc(item,value.name).subscribe(data=>{
+                                  
+                            //       if(data)
+                            //       {
+                            //         location.reload();
+                            //       }
+
+                              
+
+                            //   });
+
+                            }
+
+}
+
+
 }

@@ -24,10 +24,11 @@
             <div class="row">
                 <div class="col-sm-12">
                     <div *ngIf="this.merdata">
-                        <form #pac="ngForm" method="POST" nonvalidate (ngSubmit)="submit(pac.value)">
 
-                            <div class="row">
-                                <div class="col-sm-6">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <form #pac="ngForm" method="POST" nonvalidate (ngSubmit)="submit(pac.value)">
+
                                     <br>
                                     <div class="row">
                                         <h4>Package Name</h4>
@@ -50,49 +51,55 @@
 
                                         <input type="number" name="discounted_price" placeholder="Enter Discounted Price" ngModel required class="form-control">
                                     </div>
+                                    <button type="submit" [disabled]="!pac.valid" class="btn btn-primary btn-md">Add Package</button>
+
+                                </form>
+                            </div>
 
 
-                                </div>
 
-                                <div class="col-sm-6">
+                            <div class="col-sm-6">
+                                <form #exc="ngForm" method="POST" nonvalidate (ngSubmit)="exclusive(exc.value)">
+
                                     <div class="row">
                                         <div class="row">
                                             <h4>Special/Exclusive Offers</h4>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                <br> Special/Exclusive Offers
+                                                <textarea id="offers" name="special_offers" required ngModel class="form-control"></textarea>
+                                            </div>
 
                                         </div>
-                                        <br>
-                                        <div class="row" class="form-group">
-                                            <div class="col-sm-12">
-                                                Special/Exclusive Offers
-                                                <textarea id="offers" name="special_offers" formControlName="special_offers" required class="form-control"></textarea>
-                                            </div>
-                                            <br>
-                                        </div>
-                                        <div formGroupName="discount">
-                                            <div class="row" class="form-group">
+                                        <div>
+                                            <div class="row">
                                                 <div class="col-sm-12">
                                                     <b> Discount</b>
                                                     <br> Percentage:
                                                     <br>
-                                                    <input type="number" formControlName="percentage" name="off" id="off" min="0" max="100">
+                                                    <input type="number" name="off" id="off" ngModel min="0" max="100">
                                                 </div>
                                                 <br>
                                             </div>
-                                            <div class="row" class="form-group">
+                                            <div class="row">
                                                 <div class="col-sm-12">
                                                     Condition:
-                                                    <input type="text" name="condition" id="con" formControlName="condition" class="form-control" placeholder="Conditions">
+                                                    <input type="text" name="condition" id="con" ngModel class="form-control" placeholder="Conditions">
 
                                                 </div>
                                             </div>
+                                            <br>
+                                            <button type="submit" [disabled]="!exc.valid" class="btn btn-primary btn-md">Add Exclusive</button>
+
                                         </div>
+
                                     </div>
-                                </div>
-                                <button type="submit" [disabled]="!pac.valid" class="btn btn-primary btn-md">Add</button>
 
-
+                                </form>
                             </div>
-                        </form>
+                        </div>
                         <table class="table table-striped">
                             <thead>
                                 <tr>
@@ -112,7 +119,7 @@
                                     <td>
                                         <span *ngFor="let con of arr['contact']['phone_number']">{{con}}  </span>
                                     </td>
-                                    <td>&emsp;&emsp;<input type="checkbox" name="{{_id}}"></td>
+                                    <td>&emsp;&emsp;<input type="checkbox" name="ch" value="{{arr._id}}"></td>
                                 </tr>
 
                             </tbody>

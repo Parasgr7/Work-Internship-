@@ -204,7 +204,7 @@ router.post('/fetchMerchant', (req, res, next) => {
     });
     var options = {
 
-        url: 'https://api.mirrorsapp.in/v1/merchants/fetch',
+        url: 'http://localhost:8080/v1/merchants/fetch',
         headers: {
             'api_key': 'c6578964530bc5c55152c440ac3399c89243b768',
             'Content-type': ' application/x-www-form-urlencoded',

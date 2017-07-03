@@ -29,6 +29,7 @@
                             <thead>
                                 <tr>
                                     <th>#</th>
+                                    <th>Merchant ID</th>
                                     <th>Merchant Name</th>
                                     <th>Location</th>
                                     <th>Contact No.</th>
@@ -40,6 +41,7 @@
                             <tbody>
                                 <tr *ngFor="let arr of this.merdata;let i =index">
                                     <th scope="row">{{i+1}}</th>
+                                    <td>{{arr._id}}</td>
                                     <td>{{arr.name}}</td>
                                     <td>{{arr.address.locality}},{{arr.address.city}}</td>
                                     <td>
