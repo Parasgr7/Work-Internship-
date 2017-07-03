@@ -204,4 +204,16 @@ updateExc(id,val){
 
 }
 
+
+getGST(id)
+{
+           let headers= new Headers();
+     
+    headers.append('Content-Type','application/json');
+    return this.http.get('https://mirrors-dashboard.herokuapp.com/api/getGST/'+id,{headers:headers})
+          .map(res=>res.json()); 
+}
+
+
+
 }

@@ -65,5 +65,29 @@ this.service.updateGst(item,value.name,this.gst).subscribe(data=>{
 
 }
 
+public id;public da;
+public gst_offer;
+public st;
+getEditId(val)
+{
+  console.log(val); 
+  this.id=val;
+  this.service.getGST(val).subscribe(data=>{
+
+    $('#ta').val(data.gst_offer);
+
+  });
+}
+
+saveEdit(){
+   this.gst_offer = $('#ta').val();
+  if($('#ta').val())
+  {
+    this.st= true;
+  }
+this.service.updateGst(this.id,this.gst_offer,this.st).subscribe(data=>{
+  console.log(data);
+})
+}
 
 }
