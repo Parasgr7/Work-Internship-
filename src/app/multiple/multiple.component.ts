@@ -10,7 +10,7 @@ import{Router} from '@angular/router';
   styleUrls: ['./multiple.component.css']
 })
 export class MultipleComponent implements OnInit {
-public merdata
+public merdata;
   constructor(private _formBuilder:FormBuilder,private service:BackendService,private router:Router) { }
 dataForm: FormGroup;
   ngOnInit() {

@@ -420,4 +420,91 @@ router.get('/getGST/:id', (req, res, next) => {
 });
 
 
+router.get('/fetchNoti', (req, res, next) => {
+
+    var options = {
+        url: 'http://localhost:8080/v1/notification/join',
+        headers: {
+            'Authorization': 'JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ODkzMmZmOGY3ODgyNDAwMTE3MGJlZTEiLCJ1cGRhdGVkX2F0IjoiMjAxNy0wMi0wMlQxMzoxMToyMC4zNTZaIiwiY3JlYXRlZF9hdCI6IjIwMTctMDItMDJUMTM6MTE6MjAuMzU2WiIsIl9fdiI6MCwiYWRtaW4iOnRydWUsImdvb2dsZSI6eyJhdWQiOiI4MDQ2MTk2NzE4ODQiLCJlbWFpbCI6InBhcmljaGl0Lmt1bWFya0BnbWFpbC5jb20iLCJpZCI6IjEwNDQwMDUxMTg2MjM0OTAyMDM0MiJ9LCJ1c2VyX2lkIjoiNTg5MzJmZjhmNzg4MjQwMDExNzBiZWUyIiwiaWF0IjoxNDg2MTIzMjQzfQ._CrGlCixzYJILij08cjJFfRQFlualDJn1T_UlP95p8Y',
+            'api_key': 'c6578964530bc5c55152c440ac3399c89243b768'
+        }
+    };
+
+    request.get(options, function(err, response, body) {
+
+        res.send(body);
+
+    });
+
+
+
+});
+
+
+router.get('/getUser/:id', (req, res, next) => {
+
+    var options = {
+        url: 'http://localhost:8080/v1/users/' + req.params.id,
+        headers: {
+            'Authorization': 'JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ODkzMmZmOGY3ODgyNDAwMTE3MGJlZTEiLCJ1cGRhdGVkX2F0IjoiMjAxNy0wMi0wMlQxMzoxMToyMC4zNTZaIiwiY3JlYXRlZF9hdCI6IjIwMTctMDItMDJUMTM6MTE6MjAuMzU2WiIsIl9fdiI6MCwiYWRtaW4iOnRydWUsImdvb2dsZSI6eyJhdWQiOiI4MDQ2MTk2NzE4ODQiLCJlbWFpbCI6InBhcmljaGl0Lmt1bWFya0BnbWFpbC5jb20iLCJpZCI6IjEwNDQwMDUxMTg2MjM0OTAyMDM0MiJ9LCJ1c2VyX2lkIjoiNTg5MzJmZjhmNzg4MjQwMDExNzBiZWUyIiwiaWF0IjoxNDg2MTIzMjQzfQ._CrGlCixzYJILij08cjJFfRQFlualDJn1T_UlP95p8Y',
+            'api_key': 'c6578964530bc5c55152c440ac3399c89243b768'
+        }
+    };
+
+    request.get(options, function(err, response, body) {
+
+        res.send(body);
+
+    });
+
+
+
+});
+
+
+
+router.post('/pushNotif', (req, res, next) => {
+
+
+
+    var data = querystring.stringify({
+        firebase_token: req.body.key,
+        type: req.body.info.type,
+        offer_title: req.body.info.offer_title,
+        offer_desc: req.body.info.offer_desc,
+        image_url: req.body.info.data.image_url,
+        landing_type: req.body.info.data.landing_type,
+        offer_btn_title: req.body.info.offer_btn_title,
+        redirect_screen: req.body.info.redirect_screen,
+        event_id: req.body.info.event_id,
+        event_name: req.body.info.event_name,
+        message: req.body.info.message,
+        title: req.body.info.title
+    });
+    console.log(data);
+
+    var options = {
+        url: 'http://localhost:8080/v1/fcm/send',
+        headers: {
+            'Authorization': 'JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ODkzMmZmOGY3ODgyNDAwMTE3MGJlZTEiLCJ1cGRhdGVkX2F0IjoiMjAxNy0wMi0wMlQxMzoxMToyMC4zNTZaIiwiY3JlYXRlZF9hdCI6IjIwMTctMDItMDJUMTM6MTE6MjAuMzU2WiIsIl9fdiI6MCwiYWRtaW4iOnRydWUsImdvb2dsZSI6eyJhdWQiOiI4MDQ2MTk2NzE4ODQiLCJlbWFpbCI6InBhcmljaGl0Lmt1bWFya0BnbWFpbC5jb20iLCJpZCI6IjEwNDQwMDUxMTg2MjM0OTAyMDM0MiJ9LCJ1c2VyX2lkIjoiNTg5MzJmZjhmNzg4MjQwMDExNzBiZWUyIiwiaWF0IjoxNDg2MTIzMjQzfQ._CrGlCixzYJILij08cjJFfRQFlualDJn1T_UlP95p8Y',
+            'api_key': 'c6578964530bc5c55152c440ac3399c89243b768',
+            'Content-type': ' application/x-www-form-urlencoded',
+            'Content-length': data.length
+        },
+        body: data
+    };
+
+    request.post(options, function(err, response, body) {
+        if (response) {
+            console.log('Notification send');
+            res.send(body);
+        } else(err)
+        console.log(err);
+
+    });
+
+
+
+});
+
 module.exports = router;

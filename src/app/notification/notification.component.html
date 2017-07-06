@@ -1,0 +1,144 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-6">
+            <form #data="ngForm" [formGroup]="dataForm" method="POST" nonvalidate (ngSubmit)="upload(data.value)">
+
+                <div class="row form-group">
+                    <div class="col-12">
+                        <br>
+                        <h4><b>Push Notification</b></h4>
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col-12">
+
+                        <h5>Title</h5>
+                        <input type="text" name="title" formControlName="offer_title" class="form-control">
+                    </div>
+                </div>
+                <br>
+                <div class="row form-group">
+                    <div class="col-12">
+                        <h5>Message</h5>
+
+                        <textarea type="text" name="message" formControlName="offer_desc" class="form-control"></textarea>
+                    </div>
+                </div>
+                <br>
+
+                <div class="row">
+                    <div class="col-12">
+                        <label class="radio-inline">
+                             <input type="radio" name="type" formControlName="type"  value="General">General
+                        </label> &nbsp;&nbsp;
+                        <label class="radio-inline">
+                             <input type="radio" name="type" formControlName="type" value="Landing">Landing
+                        </label>&nbsp;&nbsp;
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="row">
+                            <h5>Redirect Screen</h5>
+                        </div>
+                        <div class="row">
+
+                            <label class="radio-inline">
+                             <input type="radio" name="redirect_screen" formControlName="redirect_screen"  value="Home">Home
+                        </label> &nbsp;&nbsp;
+                            <label class="radio-inline">
+                             <input type="radio" name="redirect_screen" formControlName="redirect_screen" value="Places">Places
+                        </label>&nbsp;&nbsp;
+
+                        </div>
+                        <div class="row">
+                            Button Title
+                            <input type="text" name="btn" formControlName="offer_btn_title" class="form-control">
+                            <h5>Event Id</h5>
+                            <input type="number" name="event_id" formControlName="event_id" class="form-control">
+                            <h5>Event Name</h5>
+                            <input type="text" name="event_name" formControlName="event_name" class="form-control">
+                        </div>
+                        <br>
+                    </div>
+                </div>
+
+                <div formGroupName="data">
+                    <div class="row form-group">
+                        <div class="col-12">
+                            <h5>Upload image</h5>
+                            <h6><b>*Note: Image must be of size  1024x576</b></h6>
+                            <input type="file" name="image_url" formControlName="image_url" ng2FileSelect [uploader]="uploader" accept="image/*;capture=camera" />
+
+                        </div>
+                    </div>
+                    <br>
+                    <input type="hidden" name="notification_type" formControlName="notification_type">
+                    <div class="row form-group">
+                        <div class="col-12">
+                            <h5>Landing Type</h5>
+
+                            <textarea type="text" name="landing_type" formControlName="landing_type" name="landing_type" class="form-control"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <button type="submit" [disabled]="!data.valid" class="btn btn-primary btn-md">Upload</button>
+
+                <br>
+            </form>
+        </div>
+
+        <div class="col-6">
+            <div class="row">
+                <div class="col-6">
+                    <br>
+                    <button (click)="pushAll()" class="btn btn-success btn-md">Send To All Customers</button>
+                </div>
+                <div class="col-6">
+                    <br>
+                    <button (click)="checked()" class="btn btn-success btn-md">Send To Below Checked Customers</button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div *ngIf="this.value">
+                        <br>
+                        <h5>Search</h5>
+                        <div class="row">
+                            <div class="col-6">
+                                <form>
+                                    <input type="text" name="abc" [(ngModel)]="term" class="form-control">
+                                </form>
+                            </div>
+                        </div>
+                        <br>
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>User Name</th>
+                                    <th>Email</th>
+                                    <th>Gender</th>
+                                    <th>Phone Number</th>
+                                    <th>Select</th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let arr of this.value | filter:term;let i =index">
+                                    <th scope="row">{{i+1}}</th>
+                                    <td>{{arr.user.name }}</td>
+                                    <td>{{arr.user.contact.email}}</td>
+                                    <td>{{arr.user.gender}}</td>
+                                    <td>{{arr.user.contact.phone_number}}</td>
+                                    <td>&emsp;&emsp;<input type="checkbox" name="check" value="{{arr.user._id}}"></td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

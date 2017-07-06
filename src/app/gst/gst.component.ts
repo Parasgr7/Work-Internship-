@@ -81,12 +81,18 @@ getEditId(val)
 
 saveEdit(){
    this.gst_offer = $('#ta').val();
-  if($('#ta').val())
+  if(!$('#ta').val())
   {
-    this.st= true;
+    this.st= false;
   }
+  else{
+    this.st=true;
+  }
+ 
 this.service.updateGst(this.id,this.gst_offer,this.st).subscribe(data=>{
   console.log(data);
+  alert('Successfully Edited GST offer');
+  location.reload();
 })
 }
 

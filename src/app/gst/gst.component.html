@@ -52,6 +52,7 @@
                                         <th>Merchant Name</th>
                                         <th>Location</th>
                                         <th>Contact No.</th>
+                                        <th>GST status</th>
                                         <th>Select for GST</th>
                                         <th>Edit</th>
                                         <th>Delete</th>
@@ -65,6 +66,7 @@
                                         <td>
                                             <span *ngFor="let con of arr['contact']['phone_number']">{{con}}  </span>
                                         </td>
+                                        <td>{{arr.gst}}</td>
                                         <td>&emsp;&emsp;<input type="checkbox" required name="fac" value="{{arr._id}}"></td>
                                         <td><label><i class="fa fa-pencil-square-o fa-lg" (click)="getEditId(arr._id)" data-toggle="modal"  data-target="#edit1" aria-hidden="true"></i></label></td>
                                         <td>&emsp;<label><i class="fa fa-close fa-lg" data-toggle="modal" (click)="getPackages(arr._id)" data-target="#delete" aria-hidden="true"></i></label></td>

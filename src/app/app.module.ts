@@ -20,6 +20,8 @@ import { MultipleComponent } from './multiple/multiple.component';
 import { Ng2CloudinaryModule } from './../../node_modules/ng2-cloudinary';
 import { FileUploadModule } from 'ng2-file-upload';
 import { GstComponent } from './gst/gst.component';
+import { NotificationComponent } from './notification/notification.component';
+import { FilterPipe } from './filter.pipe';
 
 @NgModule({
   declarations: [
@@ -34,7 +36,9 @@ import { GstComponent } from './gst/gst.component';
     ConfirmedComponent,
     DiscountComponent,
     MultipleComponent,
-    GstComponent
+    GstComponent,
+    NotificationComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,
@@ -61,7 +65,9 @@ import { GstComponent } from './gst/gst.component';
       
       {path:'multiple',component: MultipleComponent},
       
-      {path:'gst',component: GstComponent}
+      {path:'gst',component: GstComponent},
+      
+      {path:'notification',component: NotificationComponent}
   ]),
   
         Ng2CloudinaryModule,

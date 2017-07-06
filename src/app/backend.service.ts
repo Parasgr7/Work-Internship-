@@ -214,6 +214,31 @@ getGST(id)
           .map(res=>res.json()); 
 }
 
+fetchNoti()
+{
+           let headers= new Headers();
+            headers.append('Content-Type','application/json');
+    return this.http.get('http://localhost:3000/api/fetchNoti',{headers:headers})
+          .map(res=>res.json()); 
+      
+}
 
+getUser(id,value)
+{
+      let headers= new Headers();
+            headers.append('Content-Type','application/json');
+    return this.http.post('http://localhost:3000/api/getUser/'+id,value,{headers:headers})
+          .map(res=>res.json()); 
+}
+
+pushNotif(data,key)
+{
+      const body=JSON.stringify({'key':key,'info':data}); 
+      console.log(body);
+      let headers= new Headers();
+            headers.append('Content-Type','application/json');
+    return this.http.post('http://localhost:3000/api/pushNotif',body,{headers:headers})
+          .map(res=>res.json()); 
+}
 
 }
