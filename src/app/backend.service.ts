@@ -218,7 +218,7 @@ fetchNoti()
 {
            let headers= new Headers();
             headers.append('Content-Type','application/json');
-    return this.http.get('http://localhost:3000/api/fetchNoti',{headers:headers})
+    return this.http.get('https://mirrors-dashboard.herokuapp.com/api/fetchNoti',{headers:headers})
           .map(res=>res.json()); 
       
 }
@@ -227,7 +227,7 @@ getUser(id,value)
 {
       let headers= new Headers();
             headers.append('Content-Type','application/json');
-    return this.http.post('http://localhost:3000/api/getUser/'+id,value,{headers:headers})
+    return this.http.post('https://mirrors-dashboard.herokuapp.com/api/getUser/'+id,value,{headers:headers})
           .map(res=>res.json()); 
 }
 
@@ -237,7 +237,7 @@ pushNotif(data,key)
       console.log(body);
       let headers= new Headers();
             headers.append('Content-Type','application/json');
-    return this.http.post('http://localhost:3000/api/pushNotif',body,{headers:headers})
+    return this.http.post('https://mirrors-dashboard.herokuapp.com/api/pushNotif',body,{headers:headers})
           .map(res=>res.json()); 
 }
 
