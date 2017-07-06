@@ -22,6 +22,7 @@ import { FileUploadModule } from 'ng2-file-upload';
 import { GstComponent } from './gst/gst.component';
 import { NotificationComponent } from './notification/notification.component';
 import { FilterPipe } from './filter.pipe';
+import { BannnerComponent } from './bannner/bannner.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { FilterPipe } from './filter.pipe';
     MultipleComponent,
     GstComponent,
     NotificationComponent,
-    FilterPipe
+    FilterPipe,
+    BannnerComponent
   ],
   imports: [
     BrowserModule,

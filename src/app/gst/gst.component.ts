@@ -85,7 +85,7 @@ saveEdit(){
   {
     this.st= false;
   }
-  else{
+  else if($('#ta').val()){
     this.st=true;
   }
  

@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<div class="container">
     <div class="row">
         <div class="col-6">
             <form #data="ngForm" [formGroup]="dataForm" method="POST" nonvalidate (ngSubmit)="upload(data.value)">
@@ -52,7 +52,7 @@
 
                         </div>
                         <div class="row">
-                            Button Title
+                            <h5>Button Title</h5>
                             <input type="text" name="btn" formControlName="offer_btn_title" class="form-control">
                             <h5>Event Id</h5>
                             <input type="number" name="event_id" formControlName="event_id" class="form-control">
