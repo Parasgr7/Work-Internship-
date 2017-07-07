@@ -1,3 +1,254 @@
-<p>
-  bannner works!
-</p>
+<div class="container">
+    <div class="row">
+
+        <div class="col-12">
+            <form #data2="ngForm" [formGroup]="dataForm" nonvalidate (ngSubmit)="upload(data2.value)">
+
+                <div class="row">
+                    <div class="col-6">
+                        <h3>Banner Uploading</h3>
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-6">
+                        <h5>Merchant Name</h5>
+                        <input type="text" name="mer" formControlName="name" class="form-control">
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-6">
+                        <h5>Upload Banner</h5>
+                        <input type="file" ng2FileSelect [uploader]="uploader" accept="image/*;capture=camera" />
+
+                        <!--<button (click)="upload()">Upload</button>-->
+
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-6">
+                        <h5>Position</h5>
+                        <input type="number" name="pos" formControlName="pos" class="form-control">
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-6">
+                        <h5>Days</h5>
+                        <label class="checkbox-inline">
+                            <input type="checkbox" name="days" value=0>0
+                        </label>&emsp;
+                        <label class="checkbox-inline">
+                            <input type="checkbox" name="days" value=1>1
+                        </label>&emsp;
+                        <label class="checkbox-inline">
+                             <input type="checkbox" name="days" value=2>2
+                        </label>&emsp;
+                        <label class="checkbox-inline">
+                             <input type="checkbox" name="days" value=3>3
+                        </label>&emsp;
+                        <label class="checkbox-inline">
+                             <input type="checkbox" name="days" value=4>4
+                        </label>&emsp;
+                        <label class="checkbox-inline">
+                             <input type="checkbox" name="days" value=5>5
+                        </label>&emsp;
+                        <label class="checkbox-inline">
+                             <input type="checkbox" name="days" value=6>6
+                        </label>&emsp;
+                        <br>
+                    </div>
+                </div>
+                <div formGroupName="type">
+                    <div class="row">
+                        <div class="col-6">
+                            <h5>Name</h5>
+                            <input type="type" name="name" formControlName="name" class="form-control">
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-6">
+                            <h5>Action</h5>
+                            <input type="type" name="action" formControlName="action" class="form-control">
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-6">
+                            <h5>SubType</h5>
+                            <label class="checkbox-inline">
+                            <input type="radio" name="subtype" id="rad" data-toggle="modal"  data-target="#search" formControlName="subtype" value="Search">Search
+                        </label>&emsp;
+                            <label class="checkbox-inline">
+                            <input type="radio" name="subtype" data-toggle="modal" id="rad" data-target="#event" formControlName="subtype" value="Event">Event(Global)
+                        </label>&emsp;
+
+                        </div>
+                    </div>
+                    <br>
+                </div>
+
+                <div class="row">
+                    <div class="col-6">
+                        <button type="submit" class="btn btn-primary btn-md">Save</button>
+                    </div>
+                </div>
+                <br>
+            </form>
+        </div>
+
+    </div>
+</div>
+
+
+<div class="modal fade" id="search" tabindex="-1" role="dialog" aria-labelledby="modalLabelLarge" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+
+            <div class="modal-header">
+
+                <h4 class="modal-title" id="edit">Search</h4>
+
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+
+                </button>
+            </div>
+            <div class="modal-body" class="container">
+
+
+                <div class="col-sm-12">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="row">
+                                <h4>Merchant Name</h4>
+                            </div>
+                            <form #data="ngForm" nonvalidate (ngSubmit)="fetch(data.value)">
+
+                                <div class="row" class="form-group">
+
+                                    <br>
+                                    <input type="text" name="name" class="form-control" ngModel>
+                                </div>
+
+                                <button type="submit" [disabled]="!data.valid" class="btn btn-primary btn-md">Search</button>
+                            </form>
+
+                        </div>
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Merchant Name</th>
+                                    <th>Location</th>
+                                    <th>Coordinates</th>
+                                    <th>Select</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let arr of this.merdata;let i =index">
+                                    <th scope="row">{{i+1}}</th>
+                                    <td>{{arr.name}}</td>
+                                    <td>{{arr.address.locality}},{{arr.address.city}}</td>
+                                    <td>
+                                        <span *ngFor="let con of arr['loc']['coordinates']">{{con}}::</span>
+                                    </td>
+                                    <td>&emsp;&emsp;<input type="radio" id="uid" value="{{arr.loc.coordinates}}"></td>
+
+                                </tr>
+
+                            </tbody>
+                        </table>
+
+                    </div>
+
+                </div>
+            </div>
+
+
+
+
+        </div>
+
+
+    </div>
+</div>
+
+
+
+<div class="modal fade" id="event" tabindex="-1" role="dialog" aria-labelledby="modalLabelLarge" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+
+            <div class="modal-header">
+
+                <h4 class="modal-title" id="edit">Event(Global)</h4>
+
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+
+                </button>
+            </div>
+            <div class="modal-body" class="container">
+                <div class="col-sm-12">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <br>
+                            <div class="row">
+                                <h4>Merchant Name</h4>
+                            </div>
+                            <form #data1="ngForm" nonvalidate (ngSubmit)="fetch(data1.value)">
+
+                                <div class="row" class="form-group">
+
+                                    <br>
+                                    <input type="text" name="name" class="form-control" ngModel>
+                                </div>
+
+                                <button type="submit" [disabled]="!data.valid" class="btn btn-primary btn-md">Search</button>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Merchant Name</th>
+                                        <th>Location</th>
+                                        <th>Contact No.</th>
+                                        <th>Select</th>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let arr of this.merdata;let i =index">
+                                        <th scope="row">{{i+1}}</th>
+                                        <td>{{arr.name}}</td>
+                                        <td>{{arr.address.locality}},{{arr.address.city}}</td>
+                                        <td>
+                                            <span *ngFor="let con of arr['contact']['phone_number']">{{con}}  </span>
+                                        </td>
+                                        <td>&emsp;&emsp;<input type="checkbox" name="event" value="{{arr._id}}"></td>
+
+                                    </tr>
+
+                                </tbody>
+                            </table>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+
+        </div>
+
+
+    </div>
+</div>

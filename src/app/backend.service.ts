@@ -131,7 +131,6 @@ package(val){
 
 fetchMerchant(value){
    const body= value;
-   console.log(body);
       let headers= new Headers();
     return this.http.post('https://mirrors-dashboard.herokuapp.com/api/fetchMerchant/',body,{headers:headers})
           .map(res=>res.json());
@@ -234,11 +233,23 @@ getUser(id,value)
 pushNotif(data,key)
 {
       const body=JSON.stringify({'key':key,'info':data}); 
-      console.log(body);
+      
       let headers= new Headers();
             headers.append('Content-Type','application/json');
     return this.http.post('https://mirrors-dashboard.herokuapp.com/api/pushNotif',body,{headers:headers})
           .map(res=>res.json()); 
 }
+
+addBanner(data)
+{
+      const body=JSON.stringify(data); 
+     
+      let headers= new Headers();
+            headers.append('Content-Type','application/json');
+    return this.http.post('http://localhost:3000/api/addBanner',body,{headers:headers})
+          .map(res=>res.json()); 
+}
+
+
 
 }

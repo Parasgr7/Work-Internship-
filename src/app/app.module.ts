@@ -69,7 +69,9 @@ import { BannnerComponent } from './bannner/bannner.component';
       
       {path:'gst',component: GstComponent},
       
-      {path:'notification',component: NotificationComponent}
+      {path:'notification',component: NotificationComponent},
+      
+      {path:'banner',component: BannnerComponent}
   ]),
   
         Ng2CloudinaryModule,
