@@ -51,6 +51,7 @@ public data1;
         website:[]
       }),
       loc:this._formBuilder.group({
+        type:"Point",
         coordinates:[]
       }),
       work_hours:this._formBuilder.group({
@@ -114,7 +115,6 @@ this.service.fetchPackages(id).subscribe(data=>{
 
   getEditId(id){
     this.edit_id=id;
-    console.log(this.edit_id);
     this.service.getMerchant(id).subscribe(data=>{
       
       console.log(data);
@@ -131,13 +131,30 @@ this.service.fetchPackages(id).subscribe(data=>{
     $('input[name="website"]').val(data.contact.website);
     $('input[name="contact_no"]').val(data.contact.contact_no[0]);
     $('input[name="phone_number"]').val(data.contact.phone_number);
+    if(data.special_offers)
+    {
+    if(data.special_offers.length==1)
+    {
     $('#offers').val(data.special_offers[0]);
+    }
+  else if(data.special_offers.length==2)
+  {$('#offers').val(data.special_offers[0]+','+data.special_offers[1]);}
+    }
+
+    if(data.discount)
+    {
     $('input[name="off"]').val(data.discount.percentage);
     $('input[name="condition"]').val(data.discount.condition);
+    }
     $('input[name="opening_time"]').val(data.work_hours.opening_time);
     $('input[name="closing_time"]').val(data.work_hours.closing_time);
+    if(data.information.head)
+    {
     $('input[name="name"]').val(data.information.head.name);
+
     $('input[name="designation"]').val(data.information.head.designation);
+  }
+  
      data.information.facilities.forEach(function(item){
 if(item=="Card")
 {
@@ -195,43 +212,45 @@ $('#s7').prop('checked',true);
   if(data.information.cost_rating==1){
 $("#q1").prop('checked', true);
   }
-  if(data.information.cost_rating==2){
+  else if(data.information.cost_rating==2){
 $("#q2").prop('checked', true);
   }
-  if(data.information.cost_rating==3){
+  else if(data.information.cost_rating==3){
 $("#q3").prop('checked', true);
   }
-  if(data.information.cost_rating==4){
+  else if(data.information.cost_rating==4){
 $("#q3").prop('checked', true);
   }
 
-if(data.information.gender=="Male"){
+if(data.information.gender==="Male"){
 $("#w1").prop('checked', true);
   }
-  if(data.information.gender=="Women"){
+ else if(data.information.gender==="Women"){
 $("#w2").prop('checked', true);
   }
-  if(data.information.gender=="Unisex"){
+ else  if(data.information.gender==="Unisex"){
 $("#w3").prop('checked', true);
   }
 
-  if(data.work_hours.holiday=="Monday"){
+  if(data.work_hours.holiday==="Monday"){
 $("#h1").prop('checked', true);
   }
-  if(data.work_hours.holiday=="Tuesday"){
+  else if(data.work_hours.holiday==="Tuesday"){
 $("#h2").prop('checked', true);
   }
-  if(data.work_hours.holiday=="Wednesday"){
+  else if(data.work_hours.holiday==="Wednesday"){
 $("#h3").prop('checked', true);
-  }if(data.work_hours.holiday=="Thursday"){
+  }
+  else if(data.work_hours.holiday==="Thursday"){
 $("#h4").prop('checked', true);
   }
-  if(data.work_hours.holiday=="Friday"){
+  else if(data.work_hours.holiday=="Friday"){
 $("#h5").prop('checked', true);
   }
-  if(data.work_hours.holiday=="Saturday"){
+ else if(data.work_hours.holiday==="Saturday"){
 $("#h6").prop('checked', true);
-  }if(data.work_hours.holiday=="Sunday"){
+  }
+  else if(data.work_hours.holiday==="Sunday"){
   $("#h7").prop('checked', true);
 
 }
@@ -267,7 +286,14 @@ val.contact.website=$('input[name="website"]').val();;
 val.contact.contact_no=$('input[name="contact_no"]').val();;
 val.contact.phone_number=$('input[name="phone_number"]').val();
 val.discount.percentage=$('input[name="off"]').val();
-val.special_offers=$('#offers').val();
+if($('#offers').val())
+                            {
+                              var coor= new Array;
+                               var obj=$('#offers').val().toString().split(',');          
+                                val.special_offers=obj;
+                                val.exclusive= true
+                            }
+                            else {val.exclusive=false}
 val.discount.condition=$('input[name="condition"]').val();
 val.work_hours.opening_time=$('input[name="opening_time"]').val();
 val.work_hours.closing_time=$('input[name="closing_time"]').val();
@@ -329,54 +355,60 @@ if($('#s7').prop('checked'))
 }
 val.information.services=ser;
 
-
- if($("#q1").is(':checked')){
-val.information.cost_rating==1;
-  }
-  if($("#q2").is(':checked')){
-val.information.cost_rating==2;
-  }
-  if($("#q3").is(':checked')){
-val.information.cost_rating==3;
-  }
-  if($("#q4").is(':checked')){
-val.information.cost_rating==4;
-  }
-
-   if($("#h1").is(':checked')){
-val.work_hours.holiday=="Monday";
-  }
-  if($("#h2").is(':checked')){
-val.work_hours.holiday=="Tuesday";
-  }
-  if($("#h3").is(':checked')){
-val.work_hours.holiday=="Wednesday";
-  }
-  if($("#h4").is(':checked')){
-val.work_hours.holiday=="Thursday";
-  } if($("#h5").is(':checked')){
-val.work_hours.holiday=="Friday";
-  }
-  if($("#h7").is(':checked')){
-val.work_hours.holiday=="Saturday";
-  }
-  if($("#h6").is(':checked')){
-val.work_hours.holiday=="Sunday";
-  }
-
-
-if($("#w1").is(':checked')){
-val.information.geder="Men"
+if($("#w1").prop("checked")){
+val.information.gender="Men"
 }
-if($("#w1").is(':checked')){
-val.information.geder="Women"
+else if($("#w2").prop("checked")){
+val.information.gender="Women"
 }
-if($("#w1").is(':checked')){
-val.information.geder="Unisex"
+else if($("#w3").prop("checked")){
+val.information.gender="Unisex"
 }
 
- console.log(val);
- //location.reload();
+ if($("#q1").prop("checked")){
+val.information.cost_rating=1;
+  }
+  else if($("#q2").prop("checked")){
+val.information.cost_rating=2;
+  }
+  else if($("#q3").prop("checked")){
+val.information.cost_rating=3;
+  }
+  else if($("#q4").prop("checked")){
+val.information.cost_rating=4;
+  }
+
+   if($("#h1").prop('checked')){
+val.work_hours.holiday="Monday";
+  }
+  else if($("#h2").prop('checked')){
+val.work_hours.holiday="Tuesday";
+  }
+  else if($("#h3").prop('checked')){
+val.work_hours.holiday="Wednesday";
+  }
+  else if($("#h4").prop('checked')){
+val.work_hours.holiday="Thursday";
+  } else if($("#h5").prop('checked')){
+val.work_hours.holiday="Friday";
+  }
+  else if($("#h7").prop('checked')){
+val.work_hours.holiday="Saturday";
+  }
+  else if($("#h6").prop("checked")){
+val.work_hours.holiday="Sunday";
+  }
+
+
+console.log(val);
+
+   this.service.uploadEditData(val,this.edit_id).subscribe(data=>{
+
+  if(data){
+    alert('Merchant Data have been succesfully Edited');
+   location.reload();
+  }
+   });
 }
 
 

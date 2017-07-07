@@ -136,6 +136,8 @@ fetchMerchant(value){
           .map(res=>res.json());
 
 }
+
+
 addPackage(id,val){
         let headers= new Headers();
 
@@ -251,5 +253,17 @@ addBanner(data)
 }
 
 
+  uploadEditData(value,id){
+  
+     let headers= new Headers();
+
+    headers.append('Content-Type','application/json');
+
+
+    return this.http.post('https://mirrors-dashboard.herokuapp.com/api/uploadEditData/'+id,value,{headers:headers})
+
+          .map(res=>res.json());
+
+  }
 
 }

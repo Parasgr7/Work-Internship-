@@ -23,6 +23,7 @@ import { GstComponent } from './gst/gst.component';
 import { NotificationComponent } from './notification/notification.component';
 import { FilterPipe } from './filter.pipe';
 import { BannnerComponent } from './bannner/bannner.component';
+import { Filter1Pipe } from './filter1.pipe';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { BannnerComponent } from './bannner/bannner.component';
     GstComponent,
     NotificationComponent,
     FilterPipe,
-    BannnerComponent
+    BannnerComponent,
+    Filter1Pipe
   ],
   imports: [
     BrowserModule,

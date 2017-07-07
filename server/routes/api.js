@@ -200,8 +200,9 @@ router.post('/uploadData', (req, res, next) => {
 router.post('/fetchMerchant', (req, res, next) => {
     console.log('yes');
     var data = querystring.stringify({
-        name: req.body.name
+        name: req.body.search
     });
+    console.log(data);
     var options = {
 
         url: 'https://api.mirrorsapp.in/v1/merchants/fetch',
@@ -544,5 +545,36 @@ router.post('/addBanner', (req, res, next) => {
 
 });
 
+
+
+router.post('/uploadEditData/:id', (req, res, next) => {
+
+    var abc = JSON.stringify(req.body);
+    console.log(abc);
+    var options = {
+
+        url: 'https://api.mirrorsapp.in/v1/merchants/' + req.params.id,
+        headers: {
+            'Authorization': 'JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ODkzMmZmOGY3ODgyNDAwMTE3MGJlZTEiLCJ1cGRhdGVkX2F0IjoiMjAxNy0wMi0wMlQxMzoxMToyMC4zNTZaIiwiY3JlYXRlZF9hdCI6IjIwMTctMDItMDJUMTM6MTE6MjAuMzU2WiIsIl9fdiI6MCwiYWRtaW4iOnRydWUsImdvb2dsZSI6eyJhdWQiOiI4MDQ2MTk2NzE4ODQiLCJlbWFpbCI6InBhcmljaGl0Lmt1bWFya0BnbWFpbC5jb20iLCJpZCI6IjEwNDQwMDUxMTg2MjM0OTAyMDM0MiJ9LCJ1c2VyX2lkIjoiNTg5MzJmZjhmNzg4MjQwMDExNzBiZWUyIiwiaWF0IjoxNDg2MTIzMjQzfQ._CrGlCixzYJILij08cjJFfRQFlualDJn1T_UlP95p8Y',
+            'api_key': 'c6578964530bc5c55152c440ac3399c89243b768',
+            'Content-type': 'application/json'
+
+        },
+        body: abc
+    };
+    request.put(options, function(err, response, body) {
+        if (response.statusCode == 200) {
+            console.log('Data Edited');
+            res.send(body);
+        } else(err)
+        console.log(err);
+
+
+
+    });
+
+
+
+});
 
 module.exports = router;
