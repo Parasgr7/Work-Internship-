@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule,Routes } from '@angular/router';
-
+import { ModuleWithProviders } from '@angular/core';
 import { AppComponent } from './app.component';
 import { RoleComponent } from './role/role.component';
 import { UsersComponent } from './users/users.component';
@@ -24,6 +24,7 @@ import { NotificationComponent } from './notification/notification.component';
 import { FilterPipe } from './filter.pipe';
 import { BannnerComponent } from './bannner/bannner.component';
 import { Filter1Pipe } from './filter1.pipe';
+
 
 @NgModule({
   declarations: [
@@ -48,6 +49,7 @@ import { Filter1Pipe } from './filter1.pipe';
     BrowserModule,
       FormsModule, 
       ReactiveFormsModule,
+     
     HttpModule,
     RouterModule.forRoot([
      {path:'role',component:RoleComponent},
@@ -73,7 +75,8 @@ import { Filter1Pipe } from './filter1.pipe';
       
       {path:'notification',component: NotificationComponent},
       
-      {path:'banner',component: BannnerComponent}
+      {path:'banner',component: BannnerComponent},
+      { path: 'lazy', loadChildren: './lazy/lazy.module#LazyModule' }
   ]),
   
         Ng2CloudinaryModule,

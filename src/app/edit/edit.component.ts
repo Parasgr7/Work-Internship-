@@ -138,7 +138,7 @@ this.service.fetchPackages(id).subscribe(data=>{
     $('#offers').val(data.special_offers[0]);
     }
   else if(data.special_offers.length==2)
-  {$('#offers').val(data.special_offers[0]+','+data.special_offers[1]);}
+  {$('#offers').val(data.special_offers[0]+','+data.special_offers[1])}
     }
 
     if(data.discount)
