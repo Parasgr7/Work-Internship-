@@ -548,6 +548,24 @@ router.post('/addBanner', (req, res, next) => {
 
 
 router.post('/uploadEditData/:id', (req, res, next) => {
+    if (req.body.work_hours.holiday == null) {
+        delete req.body.work_hours.holiday;
+    }
+    if (req.body.contact.phone_number == "" || req.body.contact.phone_number == null) {
+        var arr = new Array;
+        req.body.contact.phone_number = arr;
+    }
+    if (req.body.contact.contact_no == "" || req.body.contact.contact_no == null) {
+        var arr = new Array;
+        req.body.contact.contact_no = arr;
+    }
+    console.log(arr);
+
+
+    if (req.body.special_offers == "") {
+        var arr = new Array;
+        req.body.special_offers = arr;
+    }
 
     var abc = JSON.stringify(req.body);
     console.log(abc);
@@ -567,7 +585,7 @@ router.post('/uploadEditData/:id', (req, res, next) => {
             console.log('Data Edited');
             res.send(body);
         } else(err)
-        console.log(err);
+        console.log('------------' + err);
 
 
 

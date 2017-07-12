@@ -139,6 +139,8 @@ this.service.fetchPackages(id).subscribe(data=>{
     }
   else if(data.special_offers.length==2)
   {$('#offers').val(data.special_offers[0]+','+data.special_offers[1])}
+  else if(data.special_offers.length==3)
+  {$('#offers').val(data.special_offers[0]+','+data.special_offers[1]+','+data.special_offers[2])}
     }
 
     if(data.discount)
@@ -282,11 +284,9 @@ val.address.city=$('input[name="city"]').val();
 val.address.state=$('input[name="state"]').val();
 val.address.pincode=$('input[name="pincode"]').val();
 val.contact.email=$('input[name="email"]').val();
-val.contact.website=$('input[name="website"]').val();;
-val.contact.contact_no=$('input[name="contact_no"]').val();;
-val.contact.phone_number=$('input[name="phone_number"]').val();
+val.contact.website=$('input[name="website"]').val();
 val.discount.percentage=$('input[name="off"]').val();
-if($('#offers').val())
+              if($('#offers').val())
                             {
                               var coor= new Array;
                                var obj=$('#offers').val().toString().split(',');          
@@ -294,6 +294,25 @@ if($('#offers').val())
                                 val.exclusive= true
                             }
                             else {val.exclusive=false}
+
+
+              if($('input[name="phone_number"]').val())
+              {
+
+                               var coor= new Array;
+                               var obj=$('input[name="phone_number"]').val().toString().split(',');          
+                                val.contact.phone_number=obj;
+                                
+              }
+
+              if($('input[name="contact_no"]').val())
+              {
+
+                               var coor= new Array;
+                               var obj=$('input[name="contact_no"]').val().toString().split(',');          
+                                val.contact.contact_no=obj;
+                                
+              }              
 val.discount.condition=$('input[name="condition"]').val();
 val.work_hours.opening_time=$('input[name="opening_time"]').val();
 val.work_hours.closing_time=$('input[name="closing_time"]').val();

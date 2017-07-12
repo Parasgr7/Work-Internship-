@@ -42,7 +42,7 @@ dataForm: FormGroup;
   }
 
  fetch(value){
-
+console.log(value);
     this.service.fetchMerchant(value).subscribe(data=>{
       this.merdata=data;
       console.log(this.merdata);

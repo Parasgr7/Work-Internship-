@@ -75,8 +75,7 @@ import { Filter1Pipe } from './filter1.pipe';
       
       {path:'notification',component: NotificationComponent},
       
-      {path:'banner',component: BannnerComponent},
-      { path: 'lazy', loadChildren: './lazy/lazy.module#LazyModule' }
+      {path:'banner',component: BannnerComponent}
   ]),
   
         Ng2CloudinaryModule,

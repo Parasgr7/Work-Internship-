@@ -83,7 +83,8 @@
                             <input type="radio" name="subtype" id="rad" data-toggle="modal"  data-target="#search" formControlName="subtype" value="search">Search
                         </label>&emsp;
                             <label class="checkbox-inline">
-                            <input type="radio" name="subtype" data-toggle="modal" id="rad" data-target="#event" formControlName="subtype" value="event">Event(Global)
+                                <input type="radio" name="subtype" id="rad" data-toggle="modal"  data-target="#event" formControlName="subtype" value="event">Event(Global)
+                        
                         </label>&emsp;
 
                         </div>
@@ -131,7 +132,7 @@
                                 <div class="row" class="form-group">
 
                                     <br>
-                                    <input type="text" name="name" class="form-control" ngModel>
+                                    <input type="text" name="search" class="form-control" ngModel>
                                 </div>
 
                                 <button type="submit" [disabled]="!data.valid" class="btn btn-primary btn-md">Search</button>
@@ -205,7 +206,7 @@
                                 <div class="row" class="form-group">
 
                                     <br>
-                                    <input type="text" name="name" class="form-control" ngModel>
+                                    <input type="text" name="search" class="form-control" ngModel>
                                 </div>
 
                                 <button type="submit" [disabled]="!data.valid" class="btn btn-primary btn-md">Search</button>
