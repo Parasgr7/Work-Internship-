@@ -36,6 +36,7 @@
                                     <th>Logo Image Upload</th>
                                     <th>Cover Image Uplaod</th>
                                     <th>Multiple Image Uplaod</th>
+                                    <th>Rate Card Upload</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -51,6 +52,7 @@
                                     <td>&emsp;<label><i class="fa fa-plus fa-lg" (click)="getId(arr._id)" data-toggle="modal"  data-target="#logo" aria-hidden="true"></i><span *ngIf="arr.logo_image">(True) </span></label></td>
                                     <td>&emsp;&emsp;<label><i class="fa fa-plus fa-lg" (click)="getId(arr._id)" data-toggle="modal"  data-target="#cover" aria-hidden="true"></i></label></td>
                                     <td>&emsp;&emsp;&emsp;<label><i class="fa fa-plus fa-lg" data-toggle="modal" (click)="getId(arr._id)"  data-target="#multiple" aria-hidden="true"></i></label></td>
+                                    <td>&emsp;&emsp;&emsp;<label><i class="fa fa-plus fa-lg" data-toggle="modal" (click)="getId(arr._id)"  data-target="#ratecard" aria-hidden="true"></i><span *ngIf="arr.menu.length">(True) </span></label></td>
 
                                 </tr>
 
