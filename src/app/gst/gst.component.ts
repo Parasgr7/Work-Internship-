@@ -11,6 +11,7 @@ import{Router} from '@angular/router';
 export class GstComponent implements OnInit {
 public merdata;
 public gst;
+value;
   constructor(private service:BackendService,private router:Router) { }
 
   ngOnInit() {
@@ -41,6 +42,7 @@ submitGst(value)
       
     });
 
+console.log(each);
 
 for (var item of each) {
 console.log(value.name);
@@ -75,26 +77,37 @@ getEditId(val)
   this.id=val;
   this.service.getGST(val).subscribe(data=>{
 
-    $('#ta').val(data.gst_offer);
+this.value=data;
+    $('#ta').val(data.gst_offers_list);
 
   });
 }
 
 saveEdit(){
-   this.gst_offer = $('#ta').val();
-  if(!$('#ta').val())
-  {
-    this.st= false;
+
+                          if($('#ta').val())
+                            {
+                              var coor= new Array;
+                               var obj=$('#ta').val().toString().split(',');          
+                                this.value.gst_offers_list=obj;
+                                this.value.gst= true
+                            }
+                            else {
+                              var arr= new Array;
+                              this.value.gst=false
+                              this.value.gst_offers_list =arr; 
+                          }
+
+console.log(this.value);
+
+this.service.uploadEditData(this.value,this.id).subscribe(data=>{
+
+  if(data){
+    alert('GST Offer have been succesfully Edited');
+   location.reload();
   }
-  else if($('#ta').val()){
-    this.st=true;
-  }
- 
-this.service.updateGst(this.id,this.gst_offer,this.st).subscribe(data=>{
-  console.log(data);
-  alert('Successfully Edited GST offer');
-  location.reload();
-})
-}
+   });
+  
+ }
 
 }

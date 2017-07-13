@@ -266,4 +266,59 @@ addBanner(data)
 
   }
 
+
+multiple(id,value){
+  
+     let headers= new Headers();
+
+    headers.append('Content-Type','application/json');
+
+
+    return this.http.post('https://mirrors-dashboard.herokuapp.com/api/multiple/'+id,value,{headers:headers})
+
+          .map(res=>res.json());
+
+  }
+
+  rate(id,value){
+  
+     let headers= new Headers();
+
+    headers.append('Content-Type','application/json');
+
+
+    return this.http.post('https://mirrors-dashboard.herokuapp.com/api/rateCard/'+id,value,{headers:headers})
+
+          .map(res=>res.json());
+
+  }
+
+  logo(id,value){
+        const body=JSON.stringify({'url':value});
+  
+     let headers= new Headers();
+
+    headers.append('Content-Type','application/json');
+
+
+    return this.http.post('https://mirrors-dashboard.herokuapp.com/api/logo/'+id,body,{headers:headers})
+
+          .map(res=>res.json());
+
+  }
+
+ cover(id,value){
+        const body=JSON.stringify({'url':value});
+  
+     let headers= new Headers();
+
+    headers.append('Content-Type','application/json');
+
+
+    return this.http.post('https://mirrors-dashboard.herokuapp.com/api/cover/'+id,body,{headers:headers})
+
+          .map(res=>res.json());
+
+  }
+
 }
