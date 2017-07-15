@@ -599,11 +599,11 @@ router.post('/uploadEditData/:id', (req, res, next) => {
 
 router.post('/multiple/:id', (req, res, next) => {
 
-    var data=JSON.stringify(req.body);
+    var data = JSON.stringify(req.body);
     console.log(data);
     var options = {
 
-        url: 'https://api.mirrorsapp.in/v1/merchants/'+req.params.id+'/images',
+        url: 'https://api.mirrorsapp.in/v1/merchants/' + req.params.id + '/images',
         headers: {
             'Authorization': 'JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ODkzMmZmOGY3ODgyNDAwMTE3MGJlZTEiLCJ1cGRhdGVkX2F0IjoiMjAxNy0wMi0wMlQxMzoxMToyMC4zNTZaIiwiY3JlYXRlZF9hdCI6IjIwMTctMDItMDJUMTM6MTE6MjAuMzU2WiIsIl9fdiI6MCwiYWRtaW4iOnRydWUsImdvb2dsZSI6eyJhdWQiOiI4MDQ2MTk2NzE4ODQiLCJlbWFpbCI6InBhcmljaGl0Lmt1bWFya0BnbWFpbC5jb20iLCJpZCI6IjEwNDQwMDUxMTg2MjM0OTAyMDM0MiJ9LCJ1c2VyX2lkIjoiNTg5MzJmZjhmNzg4MjQwMDExNzBiZWUyIiwiaWF0IjoxNDg2MTIzMjQzfQ._CrGlCixzYJILij08cjJFfRQFlualDJn1T_UlP95p8Y',
             'api_key': 'c6578964530bc5c55152c440ac3399c89243b768',
@@ -624,10 +624,10 @@ router.post('/multiple/:id', (req, res, next) => {
 
 router.post('/rateCard/:id', (req, res, next) => {
 
-    var data=JSON.stringify(req.body);
+    var data = JSON.stringify(req.body);
     var options = {
 
-        url: 'https://api.mirrorsapp.in/v1/merchants/'+req.params.id+'/rateImages',
+        url: 'https://api.mirrorsapp.in/v1/merchants/' + req.params.id + '/rateImages',
         headers: {
             'Authorization': 'JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ODkzMmZmOGY3ODgyNDAwMTE3MGJlZTEiLCJ1cGRhdGVkX2F0IjoiMjAxNy0wMi0wMlQxMzoxMToyMC4zNTZaIiwiY3JlYXRlZF9hdCI6IjIwMTctMDItMDJUMTM6MTE6MjAuMzU2WiIsIl9fdiI6MCwiYWRtaW4iOnRydWUsImdvb2dsZSI6eyJhdWQiOiI4MDQ2MTk2NzE4ODQiLCJlbWFpbCI6InBhcmljaGl0Lmt1bWFya0BnbWFpbC5jb20iLCJpZCI6IjEwNDQwMDUxMTg2MjM0OTAyMDM0MiJ9LCJ1c2VyX2lkIjoiNTg5MzJmZjhmNzg4MjQwMDExNzBiZWUyIiwiaWF0IjoxNDg2MTIzMjQzfQ._CrGlCixzYJILij08cjJFfRQFlualDJn1T_UlP95p8Y',
             'api_key': 'c6578964530bc5c55152c440ac3399c89243b768',
@@ -648,11 +648,11 @@ router.post('/rateCard/:id', (req, res, next) => {
 
 router.post('/logo/:id', (req, res, next) => {
 
-    var data=JSON.stringify(req.body);
+    var data = JSON.stringify(req.body);
     console.log(data);
     var options = {
 
-        url: 'https://api.mirrorsapp.in/v1/merchants/'+req.params.id+'/addLogo',
+        url: 'https://api.mirrorsapp.in/v1/merchants/' + req.params.id + '/addLogo',
         headers: {
             'Authorization': 'JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ODkzMmZmOGY3ODgyNDAwMTE3MGJlZTEiLCJ1cGRhdGVkX2F0IjoiMjAxNy0wMi0wMlQxMzoxMToyMC4zNTZaIiwiY3JlYXRlZF9hdCI6IjIwMTctMDItMDJUMTM6MTE6MjAuMzU2WiIsIl9fdiI6MCwiYWRtaW4iOnRydWUsImdvb2dsZSI6eyJhdWQiOiI4MDQ2MTk2NzE4ODQiLCJlbWFpbCI6InBhcmljaGl0Lmt1bWFya0BnbWFpbC5jb20iLCJpZCI6IjEwNDQwMDUxMTg2MjM0OTAyMDM0MiJ9LCJ1c2VyX2lkIjoiNTg5MzJmZjhmNzg4MjQwMDExNzBiZWUyIiwiaWF0IjoxNDg2MTIzMjQzfQ._CrGlCixzYJILij08cjJFfRQFlualDJn1T_UlP95p8Y',
             'api_key': 'c6578964530bc5c55152c440ac3399c89243b768',
@@ -675,10 +675,10 @@ router.post('/logo/:id', (req, res, next) => {
 
 router.post('/cover/:id', (req, res, next) => {
 
-    var data=JSON.stringify(req.body);
+    var data = JSON.stringify(req.body);
     var options = {
 
-        url: 'https://api.mirrorsapp.in/v1/merchants/'+req.params.id+'/addCover',
+        url: 'https://api.mirrorsapp.in/v1/merchants/' + req.params.id + '/addCover',
         headers: {
             'Authorization': 'JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ODkzMmZmOGY3ODgyNDAwMTE3MGJlZTEiLCJ1cGRhdGVkX2F0IjoiMjAxNy0wMi0wMlQxMzoxMToyMC4zNTZaIiwiY3JlYXRlZF9hdCI6IjIwMTctMDItMDJUMTM6MTE6MjAuMzU2WiIsIl9fdiI6MCwiYWRtaW4iOnRydWUsImdvb2dsZSI6eyJhdWQiOiI4MDQ2MTk2NzE4ODQiLCJlbWFpbCI6InBhcmljaGl0Lmt1bWFya0BnbWFpbC5jb20iLCJpZCI6IjEwNDQwMDUxMTg2MjM0OTAyMDM0MiJ9LCJ1c2VyX2lkIjoiNTg5MzJmZjhmNzg4MjQwMDExNzBiZWUyIiwiaWF0IjoxNDg2MTIzMjQzfQ._CrGlCixzYJILij08cjJFfRQFlualDJn1T_UlP95p8Y',
             'api_key': 'c6578964530bc5c55152c440ac3399c89243b768',

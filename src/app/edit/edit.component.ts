@@ -129,7 +129,7 @@ this.service.fetchPackages(id).subscribe(data=>{
     $('input[name="pincode"]').val(data.address.pincode);
     $('input[name="email"]').val(data.contact.email);
     $('input[name="website"]').val(data.contact.website);
-    $('input[name="contact_no"]').val(data.contact.contact_no[0]);
+    $('input[name="contact_no"]').val(data.contact.contact_no);
     $('input[name="phone_number"]').val(data.contact.phone_number);
     if(data.special_offers)
     {
