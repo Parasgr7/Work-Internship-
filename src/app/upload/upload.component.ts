@@ -106,26 +106,24 @@ ngAfterViewInit() {
    this.dataForm.patchValue({exclusive: false});
  }
 
- var offers = $('#offers').val();
- var str= offers.toString();
- var arra=$.each(str.split(",").slice(0,-1), function(index, item) {
-  
-});
+ var arra= $('#offers').val().toString().split(',');
+ console.log(arra);
+
     this.dataForm.patchValue({information:{facilities: fac }});
 
     this.dataForm.patchValue({information:{services: ser }});
 
     this.dataForm.patchValue({loc:{coordinates: sum}});
-    this.dataForm.patchValue({special_offer:arra});
+    this.dataForm.value.special_offers=arra;
   
+console.log(this.dataForm.value);
+  //  this.service.uploadData(this.dataForm.value).subscribe(data=>{
 
-   this.service.uploadData(this.dataForm.value).subscribe(data=>{
-
-  if(data){
-    alert('Merchant Data have been succesfully updated');
-    this.router.navigate(['./discount']);
-  }
-   });
+  // if(data){
+  //   alert('Merchant Data have been succesfully updated');
+  //   this.router.navigate(['./discount']);
+  // }
+  //  });
 
 
   }
