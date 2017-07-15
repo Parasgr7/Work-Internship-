@@ -288,8 +288,8 @@ val.contact.website=$('input[name="website"]').val();
 val.discount.percentage=$('input[name="off"]').val();
               if($('#offers').val())
                             {
-                              var coor= new Array;
-                               var obj=$('#offers').val().toString().split(',');          
+                                var coor= [];
+                                var obj=$('#offers').val().toString().split(',');          
                                 val.special_offers=obj;
                                 val.exclusive= true
                             }
@@ -299,7 +299,7 @@ val.discount.percentage=$('input[name="off"]').val();
               if($('input[name="phone_number"]').val())
               {
 
-                               var coor= new Array;
+                               var coor= [];
                                var obj=$('input[name="phone_number"]').val().toString().split(',');          
                                 val.contact.phone_number=obj;
                                 
@@ -308,7 +308,7 @@ val.discount.percentage=$('input[name="off"]').val();
               if($('input[name="contact_no"]').val())
               {
 
-                               var coor= new Array;
+                               var coor= [];
                                var obj=$('input[name="contact_no"]').val().toString().split(',');          
                                 val.contact.contact_no=obj;
                                 

@@ -35,6 +35,8 @@ submitGst(value)
       
     var each=new Array();
    
+   var arr=$('#val').val().toString().split(',');
+  
   
   $('input[name=fac]:checked').each(function(id)
       { 
@@ -45,15 +47,16 @@ submitGst(value)
 console.log(each);
 
 for (var item of each) {
-console.log(value.name);
-if(value.name)
+if(arr.length)
 {
   this.gst = true;
+value.name=arr;
 }
 this.service.updateGst(item,value.name,this.gst).subscribe(data=>{
       
       if(data)
-      {
+      { 
+    alert('GST Offer have been succesfully Added');
         location.reload();
       }
 
@@ -93,7 +96,7 @@ saveEdit(){
                                 this.value.gst= true
                             }
                             else {
-                              var arr= new Array;
+                              var arr=[];
                               this.value.gst=false
                               this.value.gst_offers_list =arr; 
                           }
