@@ -116,14 +116,13 @@ ngAfterViewInit() {
     this.dataForm.patchValue({loc:{coordinates: sum}});
     this.dataForm.value.special_offers=arra;
   
-console.log(this.dataForm.value);
-  //  this.service.uploadData(this.dataForm.value).subscribe(data=>{
+   this.service.uploadData(this.dataForm.value).subscribe(data=>{
 
-  // if(data){
-  //   alert('Merchant Data have been succesfully updated');
-  //   this.router.navigate(['./discount']);
-  // }
-  //  });
+  if(data){
+    alert('Merchant Data have been succesfully updated');
+   
+  }
+   });
 
 
   }
