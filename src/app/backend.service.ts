@@ -321,4 +321,18 @@ multiple(id,value){
 
   }
 
+
+ deleteMerchant(id){
+  
+     let headers= new Headers();
+
+    headers.append('Content-Type','application/json');
+
+
+    return this.http.get('https://mirrors-dashboard.herokuapp.com/api/deleteMerchant/'+id,{headers:headers})
+
+          .map(res=>res.json());
+
+  }
+
 }

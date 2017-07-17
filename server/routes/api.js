@@ -14,6 +14,11 @@ const config = require('../../config/database');
 var querystring = require('querystring');
 const request = require('request');
 
+var google = require('googleapis');
+var sheets = google.sheets('v4');
+var authentication = require('./../../authentication');
+
+
 /*
 router.use(function(req, res, next) { //allow cross origin requests
     res.setHeader("Access-Control-Allow-Methods", "POST, PUT, OPTIONS, DELETE, GET");
@@ -167,12 +172,67 @@ router.get('/cancelbookings/:id', (req, res, next) => {
 });
 
 router.post('/uploadData', (req, res, next) => {
+    const alt = req.body;
     if (req.body.contact.email == null) {
         delete req.body.contact.email;
     }
     if (req.body.work_hours.holiday == null) {
         delete req.body.work_hours.holiday;
     }
+
+
+    function appendData(auth) {
+        sheets.spreadsheets.values.append({
+            auth: auth,
+            spreadsheetId: '1yoxb3l-Jf6M5xEe_lZaQeSkkbDO5LeodKEbY2S0Eht4',
+            range: "'Live Client Details'!A620", //Change Sheet1 if your worksheet's name is something else
+            valueInputOption: true, // TODO: Update placeholder value.
+            insertDataOption: 'INSERT_ROWS', // TODO: Update placeholder value.
+            valueInputOption: "USER_ENTERED",
+            resource: {
+                values: [
+                    [alt.name,
+                        alt.loc.coordinates[0] + ';' + alt.loc.coordinates[1],
+                        alt.contact.email,
+                        alt.contact.website,
+                        alt.contact.phone_number,
+                        alt.contact.contact_no,
+                        alt.address.shop_no,
+                        alt.address.street,
+                        alt.address.locality,
+                        alt.address.city,
+                        alt.address.state,
+                        alt.address.pincode,
+                        alt.information.cost_rating,
+                        alt.information.facilities[0],
+                        alt.information.gender,
+                        alt.information.head.name,
+                        alt.information.head.designation,
+                        alt.information.services[0],
+                        alt.work_hours.opening_time,
+                        alt.work_hours.closing_time,
+                        alt.work_hours.holiday,
+                        alt.discount.percentage,
+                        alt.discount.condition,
+                        alt.special_offers[0],
+
+                    ]
+
+                ]
+            }
+        }, (err, response) => {
+            if (err) {
+                console.log('The API returned an error: ' + err);
+                return;
+            } else {
+                console.log("Appended");
+            }
+        });
+    }
+
+
+
+
     var data = new Array;
     data.push(req.body);
     var abc = JSON.stringify(data);
@@ -189,8 +249,13 @@ router.post('/uploadData', (req, res, next) => {
         body: abc
     };
     request.post(options, function(err, response, body) {
+        console.log(response.statusCode)
         if (response.statusCode == 200) {
             console.log('Data Uploaded');
+            authentication.authenticate().then((auth) => {
+                appendData(auth);
+
+            });
             res.send(body);
         } else(err)
         console.log(err);
@@ -223,6 +288,7 @@ router.post('/fetchMerchant', (req, res, next) => {
     request.post(options, function(err, response, body) {
         if (response) {
             console.log('Merchant Found');
+
             res.send(body);
         } else(err)
         console.log(err);
@@ -702,5 +768,31 @@ router.post('/cover/:id', (req, res, next) => {
 
     });
 });
+
+
+router.get('/deleteMerchant/:id', (req, res, next) => {
+
+    var options = {
+
+        url: 'https://api.mirrorsapp.in/v1/merchants/' + req.params.id,
+        headers: {
+            'Authorization': 'JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ODkzMmZmOGY3ODgyNDAwMTE3MGJlZTEiLCJ1cGRhdGVkX2F0IjoiMjAxNy0wMi0wMlQxMzoxMToyMC4zNTZaIiwiY3JlYXRlZF9hdCI6IjIwMTctMDItMDJUMTM6MTE6MjAuMzU2WiIsIl9fdiI6MCwiYWRtaW4iOnRydWUsImdvb2dsZSI6eyJhdWQiOiI4MDQ2MTk2NzE4ODQiLCJlbWFpbCI6InBhcmljaGl0Lmt1bWFya0BnbWFpbC5jb20iLCJpZCI6IjEwNDQwMDUxMTg2MjM0OTAyMDM0MiJ9LCJ1c2VyX2lkIjoiNTg5MzJmZjhmNzg4MjQwMDExNzBiZWUyIiwiaWF0IjoxNDg2MTIzMjQzfQ._CrGlCixzYJILij08cjJFfRQFlualDJn1T_UlP95p8Y',
+            'api_key': 'c6578964530bc5c55152c440ac3399c89243b768'
+
+        }
+    };
+    request.delete(options, function(err, response, body) {
+        if (response) {
+            console.log('Merchant have been Deleted Succesfully');
+            res.send(body);
+        } else(err)
+        console.log(err);
+
+
+    });
+
+
+});
+
 
 module.exports = router;

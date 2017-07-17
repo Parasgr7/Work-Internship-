@@ -432,7 +432,19 @@ console.log(val);
 
 
 
- 
+ deleteMerchant(id)
+ {
+  alert('Confirm to Delete this Merchant');
+
+    this.service.deleteMerchant(id).subscribe(data=>{
+
+  if(data){
+    alert('Merchant Record have been succesfully deleted');
+   location.reload();
+  }
+   });
+
+ }
 
 
 }

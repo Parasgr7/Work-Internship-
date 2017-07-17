@@ -36,6 +36,7 @@
                                     <th>Edit</th>
                                     <th>Add Package</th>
                                     <th>Delete Package</th>
+                                    <th>Delete Merchant</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -50,6 +51,7 @@
                                     <td>&emsp;<label><i class="fa fa-pencil-square-o fa-lg" (click)="getEditId(arr._id)" data-toggle="modal"  data-target="#edit1" aria-hidden="true"></i></label></td>
                                     <td>&emsp;&emsp;<label>(<b>{{arr.packages.length}}</b>)&emsp;<i class="fa fa-plus fa-lg" (click)="getId(arr._id)" data-toggle="modal"  data-target="#package" aria-hidden="true"></i></label></td>
                                     <td>&emsp;&emsp;&emsp;<label><i class="fa fa-close fa-lg" data-toggle="modal" (click)="getPackages(arr._id)" data-target="#delete" aria-hidden="true"></i></label></td>
+                                    <td><button class="btn btn-danger" (click)="deleteMerchant(arr._id)">Delete</button></td>
 
                                 </tr>
 
@@ -142,6 +144,8 @@
                             <th>Original Price</th>
                             <th>Discounted Price</th>
                             <th>Delete Package</th>
+
+
                         </tr>
                     </thead>
                     <tbody>
@@ -150,7 +154,6 @@
                             <td>{{arr.name}}</td>
                             <td>{{arr.original_price}}</td>
                             <td>{{arr.discounted_price}}</td>
-
                             <td><button class="btn btn-danger" (click)="delete(arr._id)">Delete</button></td>
 
                         </tr>
