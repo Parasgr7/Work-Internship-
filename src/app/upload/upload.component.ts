@@ -106,7 +106,12 @@ ngAfterViewInit() {
    this.dataForm.patchValue({exclusive: false});
  }
 
+if($('#offers').val())
+                            {
+                              
  var arra= $('#offers').val().toString().split(',');
+                            }
+                            else { arra=[]}
  console.log(arra);
 
     this.dataForm.patchValue({information:{facilities: fac }});
@@ -120,6 +125,7 @@ ngAfterViewInit() {
 
   if(data){
     alert('Merchant Data have been succesfully updated');
+    location.reload();
    
   }
    });

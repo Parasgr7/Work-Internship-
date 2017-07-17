@@ -167,6 +167,12 @@ router.get('/cancelbookings/:id', (req, res, next) => {
 });
 
 router.post('/uploadData', (req, res, next) => {
+    if (req.body.contact.email == null) {
+        delete req.body.contact.email;
+    }
+    if (req.body.work_hours.holiday == null) {
+        delete req.body.work_hours.holiday;
+    }
     var data = new Array;
     data.push(req.body);
     var abc = JSON.stringify(data);
