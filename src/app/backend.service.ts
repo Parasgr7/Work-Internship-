@@ -95,7 +95,7 @@ export class BackendService {
     headers.append('Content-Type','application/json');
 
 
-    return this.http.post('https://mirrors-dashboard.herokuapp.com/api/uploadData/',value,{headers:headers})
+    return this.http.post('http://localhost:3000/api/uploadData/',value,{headers:headers})
 
           .map(res=>res.json());
 

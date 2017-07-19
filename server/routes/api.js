@@ -19,6 +19,7 @@ var sheets = google.sheets('v4');
 var authentication = require('./../../authentication');
 
 
+
 /*
 router.use(function(req, res, next) { //allow cross origin requests
     res.setHeader("Access-Control-Allow-Methods", "POST, PUT, OPTIONS, DELETE, GET");
@@ -180,7 +181,6 @@ router.post('/uploadData', (req, res, next) => {
         delete req.body.work_hours.holiday;
     }
 
-
     function appendData(auth) {
         sheets.spreadsheets.values.append({
             auth: auth,
@@ -204,17 +204,17 @@ router.post('/uploadData', (req, res, next) => {
                         alt.address.state,
                         alt.address.pincode,
                         alt.information.cost_rating,
-                        alt.information.facilities[0],
+                        alt.information.facilities.toString(),
                         alt.information.gender,
                         alt.information.head.name,
                         alt.information.head.designation,
-                        alt.information.services[0],
+                        alt.information.services.toString(),
                         alt.work_hours.opening_time,
                         alt.work_hours.closing_time,
                         alt.work_hours.holiday,
                         alt.discount.percentage,
                         alt.discount.condition,
-                        alt.special_offers[0],
+                        alt.special_offers.toString(),
 
                     ]
 
@@ -239,7 +239,7 @@ router.post('/uploadData', (req, res, next) => {
     console.log(abc);
     var options = {
 
-        url: 'https://api.mirrorsapp.in/v1/merchants/insert',
+        url: 'http://localhost:8080/v1/merchants/insert',
         headers: {
             'Authorization': 'JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ODkzMmZmOGY3ODgyNDAwMTE3MGJlZTEiLCJ1cGRhdGVkX2F0IjoiMjAxNy0wMi0wMlQxMzoxMToyMC4zNTZaIiwiY3JlYXRlZF9hdCI6IjIwMTctMDItMDJUMTM6MTE6MjAuMzU2WiIsIl9fdiI6MCwiYWRtaW4iOnRydWUsImdvb2dsZSI6eyJhdWQiOiI4MDQ2MTk2NzE4ODQiLCJlbWFpbCI6InBhcmljaGl0Lmt1bWFya0BnbWFpbC5jb20iLCJpZCI6IjEwNDQwMDUxMTg2MjM0OTAyMDM0MiJ9LCJ1c2VyX2lkIjoiNTg5MzJmZjhmNzg4MjQwMDExNzBiZWUyIiwiaWF0IjoxNDg2MTIzMjQzfQ._CrGlCixzYJILij08cjJFfRQFlualDJn1T_UlP95p8Y',
             'api_key': 'c6578964530bc5c55152c440ac3399c89243b768',
