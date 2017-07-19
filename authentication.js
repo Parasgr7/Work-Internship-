@@ -6,6 +6,8 @@ let SCOPES = ['https://www.googleapis.com/auth/spreadsheets']; //you can add mor
 const TOKEN_DIR = (process.env.HOME || process.env.HOMEPATH || process.env.USERPROFILE) + '/.credentials/';
 const TOKEN_PATH = TOKEN_DIR + 'sheets.googleapis.com-nodejs-quickstart.json'; //the file which will contain the token
 
+console.log(TOKEN_PATH);
+
 class Authentication {
     authenticate() {
         return new Promise((resolve, reject) => {
