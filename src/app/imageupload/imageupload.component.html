@@ -37,6 +37,7 @@
                                     <th>Cover Image Uplaod</th>
                                     <th>Multiple Image Uplaod</th>
                                     <th>Rate Card Upload</th>
+                                    <th>Delete Gallery Images</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -53,6 +54,7 @@
                                     <td>&emsp;&emsp;<label><i class="fa fa-plus fa-lg" (click)="getId(arr._id)" data-toggle="modal"  data-target="#cover" aria-hidden="true"></i></label></td>
                                     <td>&emsp;&emsp;&emsp;<label><i class="fa fa-plus fa-lg" data-toggle="modal" (click)="getId(arr._id)"  data-target="#multiple" aria-hidden="true"></i></label></td>
                                     <td>&emsp;&emsp;&emsp;<label><i class="fa fa-plus fa-lg" data-toggle="modal" (click)="getId(arr._id)"  data-target="#ratecard" aria-hidden="true"></i><span *ngIf="arr.menu.length">(True) </span></label></td>
+                                    <td>&emsp;<label><i class="fa fa-close fa-lg" data-toggle="modal" (click)="getImage(arr._id)"  data-target="#delete" aria-hidden="true"></i></label></td>
 
                                 </tr>
 
@@ -147,7 +149,7 @@
                 <div class="col-sm-12">
                     <br>
                     <div class="row">
-                        <input type="file" ng2FileSelect multiple="multiple" id="file" name="file" [uploader]="uploaderMultiple"  accept="image/*;capture=camera" />
+                        <input type="file" ng2FileSelect multiple="multiple" id="file" name="file" [uploader]="uploaderMultiple" accept="image/*;capture=camera" />
                     </div>
                     <br>
                     <div class="row">
@@ -159,7 +161,7 @@
 
         </div>
     </div>
-</div> 
+</div>
 
 <div class="modal fade" id="ratecard" tabindex="-1" role="dialog" aria-labelledby="modalLabelLarge" aria-hidden="true">
     <div class="modal-dialog modal-lg">
@@ -178,11 +180,70 @@
                 <div class="col-sm-12">
                     <br>
                     <div class="row">
-                        <input type="file" ng2FileSelect multiple="yes" id="file" name="file" [uploader]="uploaderRate"  accept="image/*;capture=camera" />
+                        <input type="file" ng2FileSelect multiple="yes" id="file" name="file" [uploader]="uploaderRate" accept="image/*;capture=camera" />
                     </div>
                     <br>
                     <div class="row">
                         <button class="btn btn-success" (click)="uploadRate()">Upload</button>
+                    </div>
+                    <br>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+<div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="modalLabelLarge" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+
+            <div class="modal-header">
+
+                <h4 class="modal-title">Delete Gallery Images</h4>
+
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+<span aria-hidden="true">&times;</span>
+
+</button>
+            </div>
+            <div class="container">
+                <div class="col-sm-12">
+                    <div class="row">
+                        <div class="col-sm-12">
+
+                            <div *ngIf="this.len;else other">
+                                <table class="table table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Image</th>
+                                            <th>Delete Images</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let arr of this.mdata;let i =index">
+                                            <th scope="row">{{i+1}}</th>
+                                            <td><img src="{{arr.link}}" height="200" width="200" /></td>
+                                            <td><button class="btn btn-danger" (click)="delete(arr._id)">Delete</button></td>
+                                        </tr>
+
+                                    </tbody>
+                                </table>
+                            </div>
+                            <ng-template #other>
+                                <div class="container">
+                                    <div class="col-sm-12">
+                                        <div class="row">
+                                            <h5>Seleted Merchant have no Gallery Images</h5>
+                                        </div>
+                                    </div>
+                                </div>
+                            </ng-template>
+                        </div>
+
                     </div>
                     <br>
                 </div>

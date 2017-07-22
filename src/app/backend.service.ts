@@ -142,7 +142,7 @@ addPackage(id,val){
         let headers= new Headers();
 
     headers.append('Content-Type','application/json');
-    return this.http.post('https://mirrors-dashboard.herokuapp.com/api/addPackage/'+id,val,{headers:headers})
+    return this.http.post('http://localhost:3000/api/addPackage/'+id,val,{headers:headers})
           .map(res=>res.json());
 
 }
@@ -171,6 +171,15 @@ getMerchant(id){
     headers.append('Content-Type','application/json');
     return this.http.get('https://mirrors-dashboard.herokuapp.com/api/getMerchant/'+id,{headers:headers})
           .map(res=>res.json());
+
+}
+
+getImages(id){
+           let headers= new Headers();
+
+    headers.append('Content-Type','application/json');
+    return this.http.get('https://mirrors-dashboard.herokuapp.com/api/getMerchant/'+id,{headers:headers})
+          .map(res=>res.json().images);
 
 }
 
@@ -331,6 +340,16 @@ multiple(id,value){
 
     return this.http.get('https://mirrors-dashboard.herokuapp.com/api/deleteMerchant/'+id,{headers:headers})
 
+          .map(res=>res.json());
+
+  }
+
+
+ deleteImages(id,id1){
+  
+     let headers= new Headers();
+    headers.append('Content-Type','application/json');
+    return this.http.get('https://mirrors-dashboard.herokuapp.com/api/deleteImages/'+id+'/'+id1,{headers:headers})
           .map(res=>res.json());
 
   }

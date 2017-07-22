@@ -434,8 +434,8 @@ console.log(val);
 
  deleteMerchant(id)
  {
-  alert('Confirm to Delete this Merchant');
-
+  if(confirm('Confirm to Delete this Merchant'))
+{
     this.service.deleteMerchant(id).subscribe(data=>{
 
   if(data){
@@ -444,6 +444,7 @@ console.log(val);
   }
    });
 
+ }
  }
 
 

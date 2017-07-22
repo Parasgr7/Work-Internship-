@@ -26,7 +26,8 @@ cloudinaryImage: any;
   constructor(private _formBuilder:FormBuilder,private service:BackendService,private router:Router ) { 
       
   }
-
+mdata;
+len;
 public merdata;
 public id;
 public arr: Array<object>=[];
@@ -151,6 +152,32 @@ console.log(this.cloudinaryImage);
     {
       this.id=val;
     }
+
+getImage(val)
+{
+  this.id=val;
+  this.service.getImages(val).subscribe(data=>{
+ 
+ this.mdata=data;
+ this.len=data.length;
+  });
+}
+
+
+delete(id)
+{  console.log(this.id);
+  console.log(id);
+this.service.deleteImages(this.id,id).subscribe(data=>{
+      if(data)
+      {
+        alert('Images Deleted Successfully');
+        location.reload();
+      }
+})
+
+}
+
+
 }
 
 
