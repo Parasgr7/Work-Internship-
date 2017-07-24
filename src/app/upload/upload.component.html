@@ -13,6 +13,22 @@
                             </div>
                         </div>
                     </div>
+                    <div class="col-sm-6">
+                        <h4>Type</h4>
+                        <div class="row" class="form-group">
+                            <div class="col-sm-12">
+                                <label class="radio-inline">
+                                    <input type="radio" name="type"  formControlName="type" data-toggle="modal"  data-target="#ppl" value="PPL">PPL&emsp;
+                                </label>
+                                <label class="radio-inline">            
+                                    <input type="radio" name="type"  formControlName="type" data-toggle="modal"  data-target="#subs" value="Subscription">Subscription&emsp;
+                                </label>
+                                <label class="radio-inline">   
+                                    <input type="radio" name="type"  formControlName="type" value="Free">Free
+                                </label>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
             </div>
@@ -302,4 +318,121 @@
         </div>
     </div>
     <button type="submit" [disabled]="!data.valid" class="btn btn-primary btn-md">Save</button>
+
+
+
+    <div class="modal fade" id="ppl" tabindex="-1" role="dialog" aria-labelledby="modalLabelLarge" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+
+                <div class="modal-header">
+
+                    <h4 class="modal-title" id="ppl">PPL</h4>
+
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+
+                </button>
+                </div>
+                <div class="modal-body" class="container">
+                    <div class="col-sm-12" formGroupName="ppl">
+                        <div class="row">
+                            <h5>PPL Price</h5>
+                            <input type="number" name="price" placeholder="Enter Pay Per Lead Price" min="0" formControlName="price" class="form-control">
+                        </div>
+                        <br>
+                        <div class="row">
+                            <h5>Onboarding Date</h5>
+                            <input type="date" name="date" formControlName="date" class="form-control">
+                        </div>
+                        <br>
+                        <div class="row">
+                            <h5>Categories</h5>
+                        </div>
+                        <div class="row">
+                            <label class="radio-inline">   
+                                    <input type="radio" name="categories"  formControlName="categories" value="Trimonthly">Trimonthly&emsp;
+                                </label>
+                            <label class="radio-inline">            
+                                    <input type="radio" name="categories"  formControlName="categories"  value="Bimonthly">Bimonthly&emsp;
+                                </label>
+                            <label class="radio-inline">
+                                    <input type="radio" name="categories"  formControlName="categories"  value="Monthly">Monthly&emsp;
+                                </label>
+                            <label class="radio-inline">   
+                                    <input type="radio" name="categories"  formControlName="categories" value="Weekly">Weekly
+                                </label>
+                        </div>
+                        <br>
+                        <div class="row"></div>
+                    </div>
+                </div>
+
+
+            </div>
+
+
+        </div>
+    </div>
+
+
+    <div class="modal fade" id="subs" tabindex="-1" role="dialog" aria-labelledby="modalLabelLarge" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+
+                <div class="modal-header">
+
+                    <h4 class="modal-title" id="subs">Subscription</h4>
+
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+
+                </button>
+                </div>
+                <div class="modal-body" class="container">
+                    <div class="col-sm-12" formGroupName="subscription">
+                        <div class="row">
+                            <h5>Subscription Price</h5>
+                            <input type="number" name="subsprice" placeholder="Enter Subscription Price" min="0" formControlName="price" class="form-control">
+                        </div>
+                        <br>
+                        <div class="row">
+                            <h5>Onboarding Date</h5>
+                            <input type="date" name="subsdate" formControlName="date" class="form-control">
+                        </div>
+                        <br>
+                        <div class="row">
+                            <h5>Categories</h5>
+                        </div>
+                        <div class="row">
+                            <label class="radio-inline">   
+                                    <input type="radio" name="categories"  formControlName="categories" value="Yearly">Yearly&emsp;
+                                </label>
+                            <label class="radio-inline">   
+                                    <input type="radio" name="categories"  formControlName="categories" value="Half-Yearly">Half-Yearly&emsp;
+                                </label>
+
+                            <label class="radio-inline">   
+                                    <input type="radio" name="categories"  formControlName="categories" value="Trimonthly">Trimonthly&emsp;
+                                </label>
+                            <label class="radio-inline">            
+                                    <input type="radio" name="categories"  formControlName="categories"  value="Bimonthly">Bimonthly&emsp;
+                                </label>
+                            <label class="radio-inline">
+                                    <input type="radio" name="categories"  formControlName="categories"  value="Monthly">Monthly&emsp;
+                                </label>
+                        </div>
+                        <br>
+                        <div class="row"></div>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+    </div>
+
 </form>
+
+Revenue:::mername,loc,number,ppltype,amount,confirmedbookings,status(pending,received,churned),Renewed/churned

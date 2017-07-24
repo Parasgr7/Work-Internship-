@@ -24,6 +24,7 @@ import { NotificationComponent } from './notification/notification.component';
 import { FilterPipe } from './filter.pipe';
 import { BannnerComponent } from './bannner/bannner.component';
 import { Filter1Pipe } from './filter1.pipe';
+import { RevenueComponent } from './revenue/revenue.component';
 
 
 @NgModule({
@@ -43,7 +44,8 @@ import { Filter1Pipe } from './filter1.pipe';
     NotificationComponent,
     FilterPipe,
     BannnerComponent,
-    Filter1Pipe
+    Filter1Pipe,
+    RevenueComponent
   ],
   imports: [
     BrowserModule,
@@ -75,7 +77,9 @@ import { Filter1Pipe } from './filter1.pipe';
       
       {path:'notification',component: NotificationComponent},
       
-      {path:'banner',component: BannnerComponent}
+      {path:'banner',component: BannnerComponent},
+      
+      {path:'revenue',component: RevenueComponent}
   ]),
   
         Ng2CloudinaryModule,

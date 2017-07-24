@@ -22,6 +22,17 @@ public data=[];
     
     this.dataForm= this._formBuilder.group({
     name:[],
+    type:[],
+    ppl:this._formBuilder.group({
+      price:[],
+      date:[],
+      categories:[]
+    }),
+    subscription:this._formBuilder.group({
+      price:[],
+      date:[],
+      categories:[]
+    }),
       address: this._formBuilder.group({
         shop_no:[],
         street:[],
@@ -112,7 +123,7 @@ if($('#offers').val())
  var arra= $('#offers').val().toString().split(',');
                             }
                             else { arra=[]}
- console.log(arra);
+
 
     this.dataForm.patchValue({information:{facilities: fac }});
 
@@ -120,6 +131,7 @@ if($('#offers').val())
 
     this.dataForm.patchValue({loc:{coordinates: sum}});
     this.dataForm.value.special_offers=arra;
+    console.log(this.dataForm.value);
   
    this.service.uploadData(this.dataForm.value).subscribe(data=>{
 

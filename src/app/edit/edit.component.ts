@@ -20,6 +20,8 @@ public len;
 public del_id;
 public edit_id;
 public data1;
+public pac_id;
+public mer_id;
   constructor(private _formBuilder:FormBuilder,private service:BackendService,private router:Router) { }
 
   ngOnInit() {
@@ -96,15 +98,49 @@ onsave(val){
   getPackages(id){
 
 this.service.fetchPackages(id).subscribe(data=>{
-   this.del_id=id;
+      this.del_id=id;
       this.packages=data;
       this.len=data.length;
-      console.log(data);
     })
   }
 
+editPackage(id)
+{
+  this.pac_id=id;
+this.packages.forEach(function(item){
+
+  if(item._id===id)
+  {
+    console.log(item);
+    $('#editPac').val(item.name);
+    $('#editOri').val(item.original_price);
+    $('#editDisc').val(item.discounted_price);
+  }
+})
+
+}
+
+onEditPackage(val)
+{
+
+  val.name=$('#editPac').val();
+  val.original_price=Number($('#editOri').val());
+  val.discounted_price=Number($('#editDisc').val());
+  
+  this.service.editPackage(this.pac_id,val).subscribe(data=>{
+    if(data)
+    {
+      alert('Package have been Succesfully Edited');
+      location.reload();
+    }
+
+  })
+
+}
+  
   delete(id){
     console.log(id);
+    this.mer_id=id;
     this.service.deletePackage(id,this.del_id).subscribe(data=>{
       if(data)
       {alert('Package have been succesfully deleted');

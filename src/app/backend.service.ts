@@ -142,7 +142,7 @@ addPackage(id,val){
         let headers= new Headers();
 
     headers.append('Content-Type','application/json');
-    return this.http.post('http://localhost:3000/api/addPackage/'+id,val,{headers:headers})
+    return this.http.post('https://mirrors-dashboard.herokuapp.com/api/addPackage/'+id,val,{headers:headers})
           .map(res=>res.json());
 
 }
@@ -353,5 +353,16 @@ multiple(id,value){
           .map(res=>res.json());
 
   }
+
+
+editPackage(pac_id,val){
+
+      let headers= new Headers();
+
+    headers.append('Content-Type','application/json');
+    return this.http.put('https://mirrors-dashboard.herokuapp.com/api/editPackage/'+pac_id,val,{headers:headers})
+          .map(res=>res.json());
+
+}
 
 }
