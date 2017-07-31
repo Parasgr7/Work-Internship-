@@ -640,6 +640,10 @@ router.post('/uploadEditData/:id', (req, res, next) => {
         var arr = new Array;
         req.body.contact.contact_no = arr;
     }
+
+    if (req.body.contact.email == "") {
+        delete req.body.contact.email;
+    }
     console.log(arr);
 
 
