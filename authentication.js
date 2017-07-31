@@ -3,7 +3,7 @@ let googleAuth = require('google-auth-library');
 var fs = require('fs');
 
 let SCOPES = ['https://www.googleapis.com/auth/spreadsheets']; //you can add more scopes according to your permission need. But in case you chang the scope, make sure you deleted the ~/.credentials/sheets.googleapis.com-nodejs-quickstart.json file
-const TOKEN_DIR = __dirname + '/.credentials/';
+const TOKEN_DIR = __dirname + '/credentials/';
 const TOKEN_PATH = TOKEN_DIR + 'sheets.googleapis.com-nodejs-quickstart.json'; //the file which will contain the token
 
 console.log(TOKEN_PATH);

@@ -136,8 +136,9 @@ if($('#offers').val())
    this.service.uploadData(this.dataForm.value).subscribe(data=>{
 
   if(data){
+    console.log(data);
     alert('Merchant Data have been succesfully updated');
-    location.reload();
+   // location.reload();
    
   }
    });

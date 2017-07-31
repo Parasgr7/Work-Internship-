@@ -194,7 +194,7 @@ router.post('/uploadData', (req, res, next) => {
         sheets.spreadsheets.values.append({
             auth: auth,
             spreadsheetId: '1yoxb3l-Jf6M5xEe_lZaQeSkkbDO5LeodKEbY2S0Eht4',
-            range: "'Live Client Details'!A620", //Change Sheet1 if your worksheet's name is something else
+            range: "'Live Client Details'!A624", //Change Sheet1 if your worksheet's name is something else
             valueInputOption: true, // TODO: Update placeholder value.
             insertDataOption: 'INSERT_ROWS', // TODO: Update placeholder value.
             valueInputOption: "USER_ENTERED",
@@ -258,13 +258,13 @@ router.post('/uploadData', (req, res, next) => {
         body: abc
     };
     request.post(options, function(err, response, body) {
-        console.log(response.statusCode)
+
         if (response.statusCode == 200) {
             console.log('Data Uploaded');
             authentication.authenticate().then((auth) => {
                 appendData(auth);
-
             });
+
             res.send(body);
         } else(err)
         console.log(err);
