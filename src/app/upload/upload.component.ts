@@ -138,7 +138,7 @@ if($('#offers').val())
   if(data){
     console.log(data);
     alert('Merchant Data have been succesfully updated');
-   // location.reload();
+   location.reload();
    
   }
    });
