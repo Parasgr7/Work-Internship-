@@ -50,10 +50,13 @@
                                         <span *ngIf="arr.images.length">True  </span>
 
                                     </td>
-                                    <td>&emsp;<label><i class="fa fa-plus fa-lg" (click)="getId(arr._id)" data-toggle="modal"  data-target="#logo" aria-hidden="true"></i><span *ngIf="arr.logo_image">(True) </span></label></td>
-                                    <td>&emsp;&emsp;<label><i class="fa fa-plus fa-lg" (click)="getId(arr._id)" data-toggle="modal"  data-target="#cover" aria-hidden="true"></i></label></td>
+                                    <td>&emsp;<label><i class="fa fa-plus fa-lg" (click)="getId(arr._id)" data-toggle="modal"  data-target="#logo" aria-hidden="true"></i>
+                                    </label><span *ngIf="arr.logo_image">(True) </span></td>
+                                    <td>&emsp;&emsp;<label><i class="fa fa-plus fa-lg" (click)="getId(arr._id)" data-toggle="modal"  data-target="#cover" aria-hidden="true"></i>
+</label>&nbsp;&nbsp;<span *ngIf="arr.cover_image">(True)</span></td>
                                     <td>&emsp;&emsp;&emsp;<label><i class="fa fa-plus fa-lg" data-toggle="modal" (click)="getId(arr._id)"  data-target="#multiple" aria-hidden="true"></i></label></td>
-                                    <td>&emsp;&emsp;&emsp;<label><i class="fa fa-plus fa-lg" data-toggle="modal" (click)="getId(arr._id)"  data-target="#ratecard" aria-hidden="true"></i><span *ngIf="arr.menu.length">(True) </span></label></td>
+                                    <td>&emsp;&emsp;&emsp;<label><i class="fa fa-plus fa-lg" data-toggle="modal" (click)="getId(arr._id)"  data-target="#ratecard" aria-hidden="true"></i>
+</label><span *ngIf="arr.menu.length">(True) </span></td>
                                     <td>&emsp;<label><i class="fa fa-close fa-lg" data-toggle="modal" (click)="getImage(arr._id)"  data-target="#delete" aria-hidden="true"></i></label></td>
 
                                 </tr>
